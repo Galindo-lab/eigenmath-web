@@ -2,102 +2,31 @@
 
   <head>
     <script src="https://georgeweigt.github.io/eigenmath.js"></script>
-
-    <style>
-
-      textarea {
-          font-family:courier;
-          font-size:12pt;
-          width: 100%;
-          height: 85%;
-          resize: none;
-      }
-
-      button,input {
-          font-size:20pt
-      }
-
-    </style>
-
-    <script>
-      // https://stackoverflow.com/questions/21479107/saving-html5-textarea-contents-to-file
-      function download(){
-          var text = document.getElementById("stdin").value;
-          text = text.replace(/\n/g, "\r\n"); // To retain the Line breaks.
-          var blob = new Blob([text], { type: "text/plain"});
-          var anchor = document.createElement("a");
-          anchor.download = "my-filename.txt";
-          anchor.href = window.URL.createObjectURL(blob);
-          anchor.target ="_blank";
-          anchor.style.display = "none"; // just to be safe!
-          document.body.appendChild(anchor);
-          anchor.click();
-          document.body.removeChild(anchor);
-      }
-    </script>
+    <link rel="stylesheet" href="style.css">
     
   </head>
   
   <body>
-    
-    <div style="width:49%; display:inline-block;">
-      <textarea id="stdin">--                              Este es stdout  ------>
+    <div class="sides">
+      <div class="top">
+        <input type="text" placeholder="name">
+        <a href="https://georgeweigt.github.io/eigenmath.pdf">Manual</a>
+      </div>
+            
+      <textarea id="stdin"></textarea>
 
- 
--- Mini-introducción a eigenmath
--- las lineas que inician con dos lineas (--) ó numeral (#) son comentarios 
-
-"esto es un mensaje que se mostrara en stdout"
-
--- cuando usamos multiplicación tenemos que poner * siempre
--- sí no eigenmath pensara que es un signo
-
-"asi es un subindice"
-(x2+1)*(x+1)
-
-"asi es una multiplicaion"
-(x*3+1)*(x+1)
-
-"podemos poner numeros complejos "
-2 - 3i
-
-"asi se escribe una Matriz"
-( (1,2,3), (4,5,6), (6,7,8) )
-
--- y así guardas una matriz en una variable
-"aqui deberia estar la matriz, pero no esta :0"
-m = ( (1,2,3), (4,5,6), (6,7,8) )
-
--- para mostrar el valor de una variable puedes escribir su nombre
-"aqui esta!"
-m
-
-"aqui hay otro ejemplo"
-y = ((7,5), (-2,9))
-y
-
-"matriz inversa de y"
-inv( y )
-
--- Puedes revisar el manual para mas información !!11111!1111</textarea>
-      <br>
-
-      <button onclick="run()">Run</button>
-
-        <button onclick="location.href='https://georgeweigt.github.io/eigenmath.pdf';">Manual</button>
-
-      
+      <div class="top">
+        <ul id="button-menu">
+          <li><button> Save </button></li>
+          <li><button> Load </button></li>
+          <li><button onclick="run()">Run</button> </li>
+        </ul>
+      </div>
     </div>
 
-
-    <div style="width:49%;display:inline-block;overflow-y:scroll;height:90vh;
-">
+    <div class="sides">
       <div id="stdout"></div>
     </div>
-
-
-    
-    
 
   </body>
 </html>
