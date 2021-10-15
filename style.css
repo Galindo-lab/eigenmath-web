@@ -11,6 +11,15 @@ textarea {
     width: 100%;
     height: 80%;
     resize: none;
+    font-size:13pt;
+}
+
+button {
+    font-size:13pt;
+}
+
+input {
+    font-size:13pt;
 }
 
 .sides {
@@ -18,10 +27,11 @@ textarea {
     height: 99%;
     display: inline-block;
     overflow-y: auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .top {
+    margin: 1em 0em;
     text-align: left;
 }
 
