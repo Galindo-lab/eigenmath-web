@@ -41,15 +41,15 @@ ul {
     margin: 0;
 }
 
-#button-menu ul{
+.button-menu ul{
     list-style: none;
 }
 
-#button-menu li{
+.button-menu li{
   display: inline;
 }
 
-#button-menu > li:last-child {
+.button-menu > li:last-child {
     float: right;
 }
 

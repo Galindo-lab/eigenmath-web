@@ -10,17 +10,19 @@
   <body>
     <div class="sides">
       <div class="top">
-        <input id="file-name" type="text" placeholder="name">
-        <a href="https://georgeweigt.github.io/eigenmath.pdf" target="_blank">Manual</a>
+        <ul class="button-menu">
+          <li><input id="file-name" type="text" placeholder="name"></li>
+          <li><a href="https://georgeweigt.github.io/eigenmath.pdf" target="_blank">Manual</a></li>
+        </ul>
       </div>
             
       <textarea id="stdin"></textarea>
 
       <div class="top">
-        <ul id="button-menu">
+        <ul class="button-menu">
           <li><button onclick="download()"> Save </button></li>
-          <li></li>
           <li><input id="file" type="file"/></li>
+          <li><button onclick="vaciar()">Clear</button></li>
           <li><button onclick="run()">Run</button> </li>
         </ul>
       </div>

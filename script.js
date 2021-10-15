@@ -23,6 +23,11 @@ function download(){
     document.body.removeChild(anchor);
 }
 
+
+function vaciar(){
+    document.getElementById("stdin").value = "";
+}
+
 // |let input = document.querySelector('input');
 let input = document.getElementById('file');
   
