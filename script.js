@@ -15,7 +15,6 @@ function download(){
     var blob = new Blob([text], { type: "text/plain"});
     var anchor = document.createElement("a");
     anchor.download = getName(); //"my-filename.txt";
-    
     anchor.href = window.URL.createObjectURL(blob);
     anchor.target ="_blank";
     anchor.style.display = "none"; // just to be safe!
@@ -24,14 +23,11 @@ function download(){
     document.body.removeChild(anchor);
 }
 
-// https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-function makeid(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * 
- charactersLength));
-   }
-   return result;
-}
+document.getElementById('myFile').addEventListener('change', function() {
+    var fr = new FileReader();
+    fr.onload=function(){
+        document.getElementById('stdin').textContent=fr.result;
+    }
+        
+    fr.readAsText(this.files[0]);
+})
