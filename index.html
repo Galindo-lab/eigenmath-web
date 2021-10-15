@@ -2,7 +2,7 @@
 
   <head>
     <script src="https://georgeweigt.github.io/eigenmath.js"></script>
-    <script src="./script.js"></script>
+   
     <link rel="stylesheet" href="style.css">
     
   </head>
@@ -10,7 +10,7 @@
   <body>
     <div class="sides">
       <div class="top">
-        <!-- <input id="file-name" type="text" placeholder="name"> -->
+        <input id="file-name" type="text" placeholder="name">
         <a href="https://georgeweigt.github.io/eigenmath.pdf" target="_blank">Manual</a>
       </div>
             
@@ -19,7 +19,8 @@
       <div class="top">
         <ul id="button-menu">
           <li><button onclick="download()"> Save </button></li>
-          <!-- <li><input id="myFile" type="file"/></li> -->
+          <li></li>
+          <li><input id="file" type="file"/></li>
           <li><button onclick="run()">Run</button> </li>
         </ul>
       </div>
@@ -30,4 +31,6 @@
     </div>
 
   </body>
+
+   <script src="./script.js"></script>
 </html>
