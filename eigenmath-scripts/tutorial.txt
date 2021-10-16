@@ -1,0 +1,39 @@
+--                              Este es stdout  ------>
+
+
+-- Mini-introducción a eigenmath
+-- las lineas que inician con dos lineas (--) ó numeral (#) son comentarios
+
+"esto es un mensaje que se mostrara en stdout"
+
+-- cuando usamos multiplicación tenemos que poner * siempre
+-- sí no eigenmath pensara que es un signo
+
+"asi es un subindice"
+(x2+1)*(x+1)
+
+"asi es una multiplicaion"
+(x*3+1)*(x+1)
+
+"podemos poner numeros complejos "
+2 - 3i
+
+"asi se escribe una Matriz"
+( (1,2,3), (4,5,6), (6,7,8) )
+
+-- y así guardas una matriz en una variable
+"aqui deberia estar la matriz, pero no esta :0"
+m = ( (1,2,3), (4,5,6), (6,7,8) )
+
+-- para mostrar el valor de una variable puedes escribir su nombre
+"aqui esta!"
+m
+
+"aqui hay otro ejemplo"
+y = ((7,5), (-2,9))
+y
+
+"matriz inversa de y"
+inv( y )
+
+-- Puedes revisar el manual para mas información !!11111!1111

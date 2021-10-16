@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="style-2.css">
+    <script src="https://georgeweigt.github.io/eigenmath.js"></script>
+    <script defer src="./script.js"></script>
+    
+  </head>
+
+  <body>
+    <!-- izquierda -->
+    <div class="side">
+
+      <!-- nombre y manual -->
+      <div class="menu">
+        <ul class="buttons">
+          <li><input id="file-name" type="text" placeholder="name"></li>
+          <!-- <li><a href="" target="_blank">Manual</a></li> -->
+          <li><button class="btn btn-success" onclick=" window.open('https://georgeweigt.github.io/eigenmath.pdf','_blank')"> Manual </button></li>
+        </ul>
+      </div>
+
+      <!-- textarea -->
+      <textarea id="stdin"></textarea>
+
+      <!-- menu de botones -->
+      <div class="menu">
+        <ul class="buttons">
+          <li>
+            <button onclick="download()"> Save </button>
+          </li>
+          <li>
+            <input type="file" id="selectedFile" style="display: none;" />
+            <button onclick="document.getElementById('selectedFile').click();">Load</button>
+          </li>
+          <li>
+            <button onclick="vaciar()">Clear</button>
+          </li>
+          <li>
+            <button onclick="run()">Run</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- derecha -->
+    <div class="side">
+      <div id="stdout"></div>
+    </div>
+    
+  </body>
+</html>
