@@ -65,21 +65,16 @@ input.addEventListener('change', () => {
     
     if (files.length == 0) return;
     
-    /* If any further modifications have to be made on the
-       Extracted text. The text can be accessed using the 
-       file variable. But since this is const, it is a read 
-       only variable, hence immutable. To make any changes, 
-       changing const to var, here and In the reader.onload 
-       function would be advisible */
     const file = files[0];
+
+    // document.getElementById("file").files[0].name
     
     let reader = new FileReader();
     
     reader.onload = (e) => {
         const file = e.target.result;
+        document.getElementById("file-name").value = files[0].name;
         
-        // This is a regular expression to identify carriage 
-        // Returns and line breaks
         const lines = file.split(/\r\n|\n/);
         textarea.value = lines.join('\n');
         
