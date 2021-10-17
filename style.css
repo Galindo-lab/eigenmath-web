@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap'); 
 
 body {
@@ -15,16 +16,17 @@ body {
     /* border: 1px solid black; */
 }
 
-input, button, textarea,a {
+input, button, textarea {
     font-size: 13pt;
     margin: 5px;
     resize: none;
     font-family:'Fira Code';
     border: 1px solid #ccc;
+    padding: 5pt;
 }
 
-#stdin,button, input[type="text"] {
-    padding: 5pt;
+input[type="text"] {
+    font-family:'Roboto Slab';    
 }
 
 #stdin {
@@ -75,8 +77,8 @@ textarea {
     outline: none;
 }
 
-textarea:focus {
-    /* outline:1px solid #E0B880; */
+button:active {
+    background-color: #eee ;
 }
 
 #left,input, button,textarea {
