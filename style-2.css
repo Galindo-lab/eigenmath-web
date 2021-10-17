@@ -52,3 +52,19 @@ ul {
 .buttons > li:last-child {
     float: right;
 }
+
+
+
+/* -------------------- */
+
+button {
+    /* background: white; */
+    /* color: black; */
+    /* border: 2px solid black; */
+    /* border-radius: 100px; */
+    text-align: center;
+}
+
+#left {
+    /* background-color: #FBACB2; */
+}

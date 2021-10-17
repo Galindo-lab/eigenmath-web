@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="style-2.css">
-    <script src="https://georgeweigt.github.io/eigenmath.js"></script>
-    <script defer src="./script.js"></script>
+    <script defer src="https://georgeweigt.github.io/eigenmath.js"></script>
+    <script defer src="./script-2.js"></script>
     
   </head>
 
   <body>
     <!-- izquierda -->
-    <div class="side">
+    <div class="side" id="left">
 
       <!-- nombre y manual -->
       <div class="menu">
         <ul class="buttons">
           <li><input id="file-name" type="text" placeholder="name"></li>
-          <!-- <li><a href="" target="_blank">Manual</a></li> -->
+          <!-- https://stackoverflow.com/questions/34082002/html-button-opening-link-in-new-tab -->
           <li><button class="btn btn-success" onclick=" window.open('https://georgeweigt.github.io/eigenmath.pdf','_blank')"> Manual </button></li>
         </ul>
       </div>
@@ -31,17 +31,17 @@
       <div class="menu">
         <ul class="buttons">
           <li>
-            <button onclick="download()"> Save </button>
+            <button id="save"> Save </button>
           </li>
           <li>
-            <input type="file" id="selectedFile" style="display: none;" />
-            <button onclick="document.getElementById('selectedFile').click();">Load</button>
+            <input type="file" id="file" style="display: none;" />
+            <button id="load">Load</button>
           </li>
           <li>
-            <button onclick="vaciar()">Clear</button>
+            <button id="clear">Clear</button>
           </li>
           <li>
-            <button onclick="run()">Run</button>
+            <button id="run">Run |&gt;  </button>
           </li>
         </ul>
       </div>
