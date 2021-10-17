@@ -1,38 +1,57 @@
-<html>
+<!doctype html>
 
+<html lang="en">
   <head>
-    <script src="https://georgeweigt.github.io/eigenmath.js"></script>
-   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link rel="stylesheet" href="style.css">
+    <script defer src="https://georgeweigt.github.io/eigenmath.js"></script>
+    <script defer src="./script.js"></script>
     
   </head>
-  
+
   <body>
-    <div class="sides">
-      <div class="top">
-        <ul class="button-menu">
+    <!-- izquierda -->
+    <div class="side" id="left">
+
+      <!-- nombre y manual -->
+      <div class="menu">
+        <ul class="buttons">
           <li><input id="file-name" type="text" placeholder="name"></li>
-          <li><a href="https://georgeweigt.github.io/eigenmath.pdf" target="_blank">Manual</a></li>
+          <!-- https://stackoverflow.com/questions/34082002/html-button-opening-link-in-new-tab -->
+          <li><button class="btn btn-success" onclick=" window.open('https://georgeweigt.github.io/eigenmath.pdf','_blank')"> Manual </button></li>
         </ul>
       </div>
-            
+
+      <!-- textarea -->
       <textarea id="stdin"></textarea>
 
-      <div class="top">
-        <ul class="button-menu">
-          <li><button onclick="download()"> Save </button></li>
-          <li><input id="file" type="file"/></li>
-          <li><button onclick="vaciar()">Clear</button></li>
-          <li><button onclick="run()">Run</button> </li>
+      <!-- menu de botones -->
+      <div class="menu">
+        <ul class="buttons">
+          <li>
+            <button id="save"> Save </button>
+          </li>
+          <li>
+            <input type="file" id="file" style="display: none;" />
+            <button id="load">Load</button>
+          </li>
+          <li>
+            <button id="clear">Clear</button>
+          </li>
+          <li>
+            <button id="run">Run |&gt;  </button>
+          </li>
         </ul>
       </div>
     </div>
 
-    <div class="sides">
+
+    <!-- derecha -->
+    <div class="side">
       <div id="stdout"></div>
     </div>
-
+    
   </body>
-
-   <script src="./script.js"></script>
 </html>

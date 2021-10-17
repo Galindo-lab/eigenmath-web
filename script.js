@@ -1,32 +1,49 @@
 
-// https://stackoverflow.com/questions/21479107/saving-html5-textarea-contents-to-file
+let button_run = document.getElementById("run");
+let button_clear = document.getElementById("clear");
+let button_save = document.getElementById("save");
+let button_load = document.getElementById("load");
 
-function getText() {
-    return document.getElementById("stdin").value;
-}
+let stdin = document.getElementById("stdin");
+let stdout_ = document.getElementById("stdout");
 
-function getName(){
-    return document.getElementById("file-name").value;
-}
+let file_name = document.getElementById("file-name");
 
-function download(){
-    var text = getText();
-    text = text.replace(/\n/g, "\r\n"); // To retain the Line breaks.
-    var blob = new Blob([text], { type: "text/plain"});
-    var anchor = document.createElement("a");
-    anchor.download = getName(); //"my-filename.txt";
-    anchor.href = window.URL.createObjectURL(blob);
-    anchor.target ="_blank";
-    anchor.style.display = "none"; // just to be safe!
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-}
+button_run.addEventListener("click", ()=>{
+    run()
+});
+
+button_clear.addEventListener("click", ()=>{
+    document.getElementById("stdout").innerHTML = "";
+});
+
+button_save.addEventListener("click", ()=>{
+
+    if( file_name.value !== ""){
+        var text = stdin.value;
+        text = text.replace(/\n/g, "\r\n");
+        var blob = new Blob([text], { type: "text/plain"});
+        var anchor = document.createElement("a");
+        anchor.download = document.getElementById("file-name").value;
+        anchor.href = window.URL.createObjectURL(blob);
+        anchor.target ="_blank";
+        anchor.style.display = "none"; 
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+    } else {
+        alert("space name is empty");
+    }
+    
+    
+});
+
+button_load.addEventListener("click", ()=>{
+    document.getElementById('file').click();
+});
 
 
-function vaciar(){
-    document.getElementById("stdin").value = "";
-}
+
 
 // |let input = document.querySelector('input');
 let input = document.getElementById('file');

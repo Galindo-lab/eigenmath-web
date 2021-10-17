@@ -1,57 +1,70 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap'); 
+
 body {
+    display: flex;
+    height: 100%;
     margin: 0;
-    margin: 0 auto;
-    text-align: center;
-    
 }
 
-textarea {
-    font-family:courier;
+.side {
+    height: 100vh;
     width: 100%;
-    height: 80%;
-    resize: none;
-    font-size:13pt;
-}
-
-button {
-    font-size:13pt;
-}
-
-input {
-    font-size:13pt;
-}
-
-.sides {
-    width: 49%;
-    height: 99%;
-    display: inline-block;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     /* border: 1px solid black; */
 }
 
-.top {
-    margin: 1em 0em;
-    text-align: left;
+input, button, textarea,a {
+    font-size: 13pt;
+    margin: 5px;
+    resize: none;
+    font-family:'Fira Code';
 }
 
+#stdin {
+    height: 100%;
+    width: calc(100% - 10pt - 12px);
+    padding: 5pt;
+    /* border: 1px soli; */
+    /* background-color: grey; */
+    margin: 0 0 0 5px;
+}
+
+#stdout {
+    overflow-y: auto;
+    text-align: center;
+}
 
 ul {
     padding-inline-start: 0;
     margin: 0;
 }
 
-.button-menu ul{
+.menu ul{
     list-style: none;
 }
 
-.button-menu li{
-  display: inline;
+.menu li{
+    display: inline;
 }
 
-.button-menu > li:last-child {
+.buttons > li:last-child {
     float: right;
 }
 
 
 
+/* -------------------- */
+
+button {
+    /* background: white; */
+    /* color: black; */
+    /* border: 2px solid black; */
+    /* border-radius: 100px; */
+    text-align: center;
+}
+
+#left {
+    /* background-color: #FBACB2; */
+}
