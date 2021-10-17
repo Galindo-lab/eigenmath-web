@@ -20,14 +20,16 @@ input, button, textarea,a {
     margin: 5px;
     resize: none;
     font-family:'Fira Code';
+    border: 1px solid #ccc;
+}
+
+#stdin,button, input[type="text"] {
+    padding: 5pt;
 }
 
 #stdin {
     height: 100%;
     width: calc(100% - 10pt - 12px);
-    padding: 5pt;
-    /* border: 1px soli; */
-    /* background-color: grey; */
     margin: 0 0 0 5px;
 }
 
@@ -69,8 +71,15 @@ button {
     
 }
 
+textarea {
+    outline: none;
+}
+
+textarea:focus {
+    /* outline:1px solid #E0B880; */
+}
+
 #left,input, button,textarea {
-    background-color: #201818;
-    border: 0;
-    color: #E0B880;
+    background-color: white;
+    color: #454545;
 }
