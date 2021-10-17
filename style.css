@@ -65,6 +65,12 @@ button {
     text-align: center;
 }
 
-#left {
-    /* background-color: #FBACB2; */
+#right {
+    
+}
+
+#left,input, button,textarea {
+    background-color: #201818;
+    border: 0;
+    color: #E0B880;
 }

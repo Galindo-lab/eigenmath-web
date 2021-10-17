@@ -3,14 +3,21 @@ let button_run = document.getElementById("run");
 let button_clear = document.getElementById("clear");
 let button_save = document.getElementById("save");
 let button_load = document.getElementById("load");
+// let file_name = document.getElementById("file-name");
+let button_manual = document.getElementById("manual");
 
 let stdin = document.getElementById("stdin");
 let stdout_ = document.getElementById("stdout");
 
 let file_name = document.getElementById("file-name");
 
+
 button_run.addEventListener("click", ()=>{
     run()
+});
+
+button_manual.addEventListener("click", ()=>{
+    window.open('https://georgeweigt.github.io/eigenmath.pdf','_blank')
 });
 
 button_clear.addEventListener("click", ()=>{
@@ -47,17 +54,17 @@ button_load.addEventListener("click", ()=>{
 
 // |let input = document.querySelector('input');
 let input = document.getElementById('file');
-  
+
 let textarea = document.querySelector('textarea')
-  
+
 // This event listener has been implemented to identify a
 // Change in the input section of the html code
 // It will be triggered when a file is chosen.
 input.addEventListener('change', () => {
     let files = input.files;
-  
+    
     if (files.length == 0) return;
-  
+    
     /* If any further modifications have to be made on the
        Extracted text. The text can be accessed using the 
        file variable. But since this is const, it is a read 
@@ -65,20 +72,20 @@ input.addEventListener('change', () => {
        changing const to var, here and In the reader.onload 
        function would be advisible */
     const file = files[0];
-  
+    
     let reader = new FileReader();
-  
+    
     reader.onload = (e) => {
         const file = e.target.result;
-  
+        
         // This is a regular expression to identify carriage 
         // Returns and line breaks
         const lines = file.split(/\r\n|\n/);
         textarea.value = lines.join('\n');
-  
+        
     };
-  
+    
     reader.onerror = (e) => alert(e.target.error.name);
-  
+    
     reader.readAsText(file);
 });
