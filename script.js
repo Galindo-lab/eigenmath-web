@@ -7,12 +7,12 @@ let button_load = document.getElementById("load");
 let button_manual = document.getElementById("manual");
 
 let stdin = document.getElementById("stdin");
-let stdout_ = document.getElementById("stdout");
+let salida = document.getElementById("stdout");
 
 let file_name = document.getElementById("file-name");
 
 
-button_run.addEventListener("click", ()=>{
+document.getElementById("run").addEventListener("click", ()=>{
     run()
 });
 
@@ -26,18 +26,9 @@ button_clear.addEventListener("click", ()=>{
 
 button_save.addEventListener("click", ()=>{
 
-    if( file_name.value !== ""){
-        var text = stdin.value;
-        text = text.replace(/\n/g, "\r\n");
-        var blob = new Blob([text], { type: "text/plain"});
-        var anchor = document.createElement("a");
-        anchor.download = document.getElementById("file-name").value;
-        anchor.href = window.URL.createObjectURL(blob);
-        anchor.target ="_blank";
-        anchor.style.display = "none"; 
-        document.body.appendChild(anchor);
-        anchor.click();
-        document.body.removeChild(anchor);
+    if( file_name.value !== "" && stdin.value !== "" ){
+        saveFile(file_name.value, stdin.value);
+      
     } else {
         alert("space name is empty");
     }
@@ -48,6 +39,7 @@ button_save.addEventListener("click", ()=>{
 button_load.addEventListener("click", ()=>{
     document.getElementById('file').click();
 });
+
 
 
 
