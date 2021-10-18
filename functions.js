@@ -1,3 +1,9 @@
+
+function $(x) {
+    return document.getElementById(x);
+} 
+
+
 // una forma bastante "hacky" de hacer las cosas, pero funciona lo
 // suficientemente bien
 function saveFile(fileName, content)

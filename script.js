@@ -1,42 +1,44 @@
 
-let button_run = document.getElementById("run");
-let button_clear = document.getElementById("clear");
-let button_save = document.getElementById("save");
-let button_load = document.getElementById("load");
+
+// // Buttons
+// let button_run = document.getElementById("run");
+// let button_clear = document.getElementById("clear");
+// let button_save = document.getElementById("save");
+// let button_load = document.getElementById("load");
+// let button_manual = document.getElementById("manual");
+
+// // input
+// let stdin = document.getElementById("stdin");
 // let file_name = document.getElementById("file-name");
-let button_manual = document.getElementById("manual");
 
-let stdin = document.getElementById("stdin");
-let salida = document.getElementById("stdout");
-
-let file_name = document.getElementById("file-name");
+// // output
+// let salida = document.getElementById("stdout");
 
 
-document.getElementById("run").addEventListener("click", ()=>{
+$("run").addEventListener("click", ()=>{
     run()
 });
 
-button_manual.addEventListener("click", ()=>{
+$("manual").addEventListener("click", ()=>{
     window.open('https://georgeweigt.github.io/eigenmath.pdf','_blank')
 });
 
-button_clear.addEventListener("click", ()=>{
+$("clear").addEventListener("click", ()=>{
     document.getElementById("stdout").innerHTML = "";
 });
 
-button_save.addEventListener("click", ()=>{
+$("save").addEventListener("click", ()=>{
 
-    if( file_name.value !== "" && stdin.value !== "" ){
-        saveFile(file_name.value, stdin.value);
+    if( $("file-name").value !== "" && $("stdin").value !== "" ){
+        saveFile($("file-name").value, $("stdin").value);
       
     } else {
         alert("space name is empty");
     }
     
-    
 });
 
-button_load.addEventListener("click", ()=>{
+$("load").addEventListener("click", ()=>{
     document.getElementById('file').click();
 });
 
