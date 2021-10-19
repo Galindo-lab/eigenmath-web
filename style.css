@@ -33,11 +33,13 @@ input[type="text"] {
     height: 100%;
     width: calc(100% - 10pt - 12px);
     margin: 0 0 0 5px;
+    text-align: left;
 }
 
 #stdout {
+    height: 100%;
     overflow-y: auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 ul {
@@ -62,19 +64,18 @@ ul {
 /* -------------------- */
 
 button {
-    /* background: white; */
-    /* color: black; */
-    /* border: 2px solid black; */
-    /* border-radius: 100px; */
     text-align: center;
 }
 
 #right {
-    
+
+    max-width: 50%;
+    overflow-y: scroll;
 }
 
 textarea {
     outline: none;
+    overflow-y: scroll;
 }
 
 button:active {
@@ -85,3 +86,4 @@ button:active {
     background-color: white;
     color: #454545;
 }
+

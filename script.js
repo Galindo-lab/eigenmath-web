@@ -1,19 +1,5 @@
 
 
-// // Buttons
-// let button_run = document.getElementById("run");
-// let button_clear = document.getElementById("clear");
-// let button_save = document.getElementById("save");
-// let button_load = document.getElementById("load");
-// let button_manual = document.getElementById("manual");
-
-// // input
-// let stdin = document.getElementById("stdin");
-// let file_name = document.getElementById("file-name");
-
-// // output
-// let salida = document.getElementById("stdout");
-
 
 $("run").addEventListener("click", ()=>{
     run()
@@ -46,9 +32,7 @@ $("load").addEventListener("click", ()=>{
 
 
 
-// |let input = document.querySelector('input');
 let input = document.getElementById('file');
-
 let textarea = document.querySelector('textarea')
 
 // This event listener has been implemented to identify a
