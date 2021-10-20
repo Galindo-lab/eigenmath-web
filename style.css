@@ -38,7 +38,7 @@ input[type="text"] {
 
 #stdout {
     height: 100%;
-    overflow-y: auto;
+    margin: 1em;
     /* text-align: center; */
 }
 
@@ -71,6 +71,7 @@ button {
 
     max-width: 50%;
     overflow-y: scroll;
+    overflow-x: auto;
 }
 
 textarea {
