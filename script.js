@@ -9,6 +9,10 @@ $("manual").addEventListener("click", ()=>{
     window.open('https://georgeweigt.github.io/eigenmath.pdf','_blank')
 });
 
+$("reference").addEventListener("click", ()=>{
+    window.open('https://georgeweigt.github.io/help.html','_blank')
+});
+
 $("clear").addEventListener("click", ()=>{
     document.getElementById("stdout").innerHTML = "";
 });
