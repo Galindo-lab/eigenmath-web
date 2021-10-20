@@ -29,6 +29,9 @@ $("load").addEventListener("click", ()=>{
 });
 
 
+$("stdin").addEventListener('keyup',()=> {
+    run()
+});
 
 
 
