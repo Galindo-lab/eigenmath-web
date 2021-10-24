@@ -23,37 +23,25 @@
         <input id="file-name" type="text" placeholder="Untitled document">
       </div>
 
-      
-      <!-- menu de botones -->
       <div class="menu">
-        <ul class="buttons">
-          <li>
-            <input type="file" id="file" style="display: none;" />
-            <button title="Load" id="load"> load </button>
-          </li>
-          <li>
-            <button title="Save" id="save"> save </button>
-          </li>
-          <li>
-            <button title="Clear" id="clear"> clear </button>
-          </li>
-          |
-          <li>
-            <button title="Reference" id="reference"> reference </button>
-          </li>
-
-            <li>
-            <button title="Manual" id="manual"> Manual </button>
-          </li>
-
-          <li>
-            <button id="run">Run ►  </button>
-          </li>
-        </ul>
+        <input type="file" id="file" style="display: none;" />
+        <button title="Load" id="load"> Load </button>
+        <button title="Save" id="save"> Save </button>
+        <button title="Clear" id="clear"> Clear </button>
+        |
+        <button title="Reference" id="reference"> Reference </button>
+        <button title="Manual" id="manual"> Manual </button>
       </div>
 
       <!-- textarea -->
-      <textarea id="stdin"></textarea>
+      <div class="stdin-outline">
+        <textarea id="stdin"></textarea>
+      </div>
+      
+      <!-- menu de botones -->
+      <div class="menu">
+        <button id="run">Run ►</button>
+      </div>
 
     </div>
 

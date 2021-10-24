@@ -2,93 +2,58 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap');  */
 
+:root {
+    --dark-primary-color     : #C2185B; 
+    --default-primary-color  : #E91E63; 
+    --light-primary-color    : #F8BBD0; 
+    --text-primary-color     : #FFFFFF; 
+    --accent-color           : #FF4081; 
+    --primary-text-color     : #212121; 
+    --secondary-text-color   : #757575; 
+    --divider-color          : #BDBDBD; 
+}
+
+
 body {
-    display: flex;
-    height: 100%;
-    margin: 0;
+    font-size: 15px ;
 }
-
-.side {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-input, button, textarea {
-    font-size: 13pt;
-    margin: 5px;
-    resize: none;
-    /* font-family:'Fira Code'; */
-    border: 1px solid #ccc;
-    padding: 5pt;
-    /* margin: 2px; */
-}
-
-input[type="text"] {
-    /* font-family:'Roboto Slab'; */
-    width: 100%;
-}
-
-#stdin {
-    height: 100%;
-    width: calc(100% - 10pt - 12px);
-    text-align: left;
-}
-
-#stdout {
-    height: 100%;
-    margin: 1em;
-}
-
-ul {
-    padding-inline-start: 0;
-    margin: 0;
-}
-
 
 .title {
-    display: flex;
-}
-
-.menu ul{
-    list-style: none;
-}
-
-.menu li{
-    display: inline;
-}
-
-.buttons > li:last-child {
-    float: right;
-}
-
-
-
-/* -------------------- */
-
-button {
-    text-align: center;
-}
-
-#right {
-
-    max-width: 50%;
-    overflow-y: auto;
-    overflow-x: auto;
+    padding-top: 9px;
 }
 
 textarea {
+    
+    margin: 0;
+    padding: 0;
     outline: none;
-    overflow-y: scroll;
+    border: 1px solid var(--divider-color);
+}
+
+input[type="text"]{
+    padding: 4px 6px 4px 6px;
+    font-size:18px;
+    border: 0;
+    outline: none;
+}
+
+button {
+    background-color: var(--text-primary-color);
+    height: 29px;
+    border: 1px;
+    padding: 4px 6px 4px 6px;
+    margin-top: 2px;
+}
+
+button:hover {
+    background-color: var(--light-primary-color);
 }
 
 button:active {
-    background-color: #eee ;
+    background-color: var(--accent-color);
 }
 
-#left,input, button,textarea {
-    background-color: white;
-    color: #454545;
-}
 
+.menu > button:last-child {
+    float: right;
+}
