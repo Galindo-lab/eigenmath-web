@@ -5,6 +5,7 @@ $("run").addEventListener("click", ()=>{
     run()
 });
 
+//https://stackoverflow.com/questions/34082002/html-button-opening-link-in-new-tab
 $("manual").addEventListener("click", ()=>{
     window.open('https://georgeweigt.github.io/eigenmath.pdf','_blank')
 });
@@ -62,7 +63,7 @@ input.addEventListener('change', () => {
         
         const lines = file.split(/\r\n|\n/);
         textarea.value = lines.join('\n');
-        
+        run()
     };
     
     reader.onerror = (e) => alert(e.target.error.name);

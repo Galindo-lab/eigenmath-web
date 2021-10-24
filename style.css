@@ -1,6 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap'); 
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap');  */
 
 body {
     display: flex;
@@ -13,38 +13,42 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* border: 1px solid black; */
 }
 
 input, button, textarea {
     font-size: 13pt;
     margin: 5px;
     resize: none;
-    font-family:'Fira Code';
+    /* font-family:'Fira Code'; */
     border: 1px solid #ccc;
     padding: 5pt;
+    /* margin: 2px; */
 }
 
 input[type="text"] {
-    font-family:'Roboto Slab';    
+    /* font-family:'Roboto Slab'; */
+    width: 100%;
 }
 
 #stdin {
     height: 100%;
     width: calc(100% - 10pt - 12px);
-    margin: 0 0 0 5px;
     text-align: left;
 }
 
 #stdout {
     height: 100%;
     margin: 1em;
-    /* text-align: center; */
 }
 
 ul {
     padding-inline-start: 0;
     margin: 0;
+}
+
+
+.title {
+    display: flex;
 }
 
 .menu ul{
@@ -70,7 +74,7 @@ button {
 #right {
 
     max-width: 50%;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: auto;
 }
 
