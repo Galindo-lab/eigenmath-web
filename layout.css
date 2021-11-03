@@ -1,0 +1,41 @@
+
+body {
+    display: flex;
+    height: 100%;
+    margin: 0;
+}
+
+.side {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#right {
+    max-width: 50%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+
+.stdin-outline {
+    height: 100%;
+    display: flex;x
+}
+
+#stdin {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    resize: none;
+}
+
+#stdout {
+    height: 100%;
+    user-select: none;
+}
+
+.title {
+    display: flex;
+}
