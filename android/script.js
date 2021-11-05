@@ -40,14 +40,6 @@ $("input").addEventListener("blur", (event) => {
     $("buffer").style.display = "block";
 });
 
-// $("buffer").addEventListener("focus", (event) => {
-//     $("buffer").style.height = "300px";
-// });
-
-// $("buffer").addEventListener("blur", (event) => {
-//     $("buffer").style.height = "100%";
-// });
-
 
 
 $("buffer").addEventListener("change", () => {
