@@ -19,15 +19,49 @@ function clearInput() {
     $("input").value = ""    
 }
 
+function isCommnad() {
+    return $("input").value.charAt(0) === ':'
+}
+
+function executeCommand(){
+
+    let parts = $("input").value.split(' ')
+    let expr =  parts[0]
+    
+    switch (expr) {
+    case ":alert":
+        alert(parts[1]);
+        break;
+
+    case ":save":
+        alert("save done")
+        window.localStorage.setItem(parts[1], $("buffer").value);
+        break;
+
+    case ":load":
+        $("buffer").value = window.localStorage.getItem(parts[1]);
+        break;
+        
+    default:
+        alert("Comando error");
+    }
+}
+
 $("input").addEventListener("keyup", (event) => {
     if (event.keyCode === ENTER_KEY_CODE) {
         event.preventDefault();
 
         if(syntaxError()){ removeStdinLastLine() }
-        
-        $("stdin").value += "\n" + $("input").value;
+
+        if( isCommnad() ) {
+            executeCommand();
+        } else {
+            $("stdin").value += "\n" + $("input").value;
+            run();
+        }
+
         clearInput();
-        run();
+        
     }
 });
 
@@ -39,8 +73,6 @@ $("input").addEventListener("focus", (event) => {
 $("input").addEventListener("blur", (event) => {
     $("buffer").style.display = "block";
 });
-
-
 
 $("buffer").addEventListener("change", () => {
     $("stdin").value = "trace=1\n" + $("buffer").value;
