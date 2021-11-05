@@ -1,0 +1,197 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    <script defer src="https://georgeweigt.github.io/eigenmath.js"></script>
+    <script defer src="./functions.js"></script>
+    <script defer src="./script.js"></script>
+
+    <style>
+
+      body {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+      }
+
+      #stdout {
+          margin-bottom: 50vh;
+          padding: 8px;
+          user-select: none; 
+      }
+
+      .bottom {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          position: fixed;
+          bottom: 0;
+          overflow: hidden;
+      }
+
+      .outline {
+          display: flex;          
+          width: 100%;
+      }
+
+      #input {
+          width: 100%;
+      }
+
+      button {
+          width: 96px;
+          height: 48px;
+      }
+
+      input {
+          padding: 8px;
+      }
+
+      #buffer {
+          max-height: 100%;
+          width: 100%;
+          resize: none;
+          border: 0;
+          margin: 0;
+          padding: 8px;
+          outline: none;
+      }
+
+      #buffer:focus {
+          height: 300px;
+      }
+                
+
+    </style>
+    
+    
+  </head>
+
+  <body>
+
+    <textarea
+      id="stdin"
+      autocapitalize="none"
+      resize="no"
+      style="display:none;"
+      >trace=1</textarea>
+
+    <!-- derecha -->
+    <!-- <div class="top"> -->
+      <div id="stdout"></div>
+      <!-- </div> -->
+
+    
+    <div class="bottom">
+
+      <div class="outline">
+
+        <datalist id="browsers">
+          <option value="abs">
+          <option value="adj">
+          <option value="and">
+          <option value="arccos">
+          <option value="arccosh">
+          <option value="arcsin">
+          <option value="arcsinh">
+          <option value="arctan">
+          <option value="arctanh">
+          <option value="arg">
+          <option value="binding">
+          <option value="ceiling">
+          <option value="check">
+          <option value="circexp">
+          <option value="clear">
+          <option value="clock">
+          <option value="cofactor">
+          <option value="conj">
+          <option value="contract">
+          <option value="cos">
+          <option value="cosh">
+          <option value="d">
+          <option value="defint">
+          <option value="denominator">
+          <option value="det">
+          <option value="dim">
+          <option value="do">
+          <option value="dot">
+          <option value="draw">
+          <option value="eval">
+          <option value="exp">
+          <option value="expcos">
+          <option value="expcosh">
+          <option value="expsin">
+          <option value="expsinh">
+          <option value="exptan">
+          <option value="exptanh">
+          <option value="factorial">
+          <option value="float">
+          <option value="floor">
+          <option value="for">
+          <option value="hadamard">
+          <option value="i">
+          <option value="imag">
+          <option value="inner">
+          <option value="integral">
+          <option value="inv">
+          <option value="j">
+          <option value="kronecker">
+          <option value="last">
+          <option value="log">
+          <option value="mag">
+          <option value="minor">
+          <option value="minormatrix">
+          <option value="mod">
+          <option value="noexpand">
+          <option value="not">
+          <option value="numerator">
+          <option value="or">
+          <option value="outer">
+          <option value="pi">
+          <option value="polar">
+          <option value="power">
+          <option value="print">
+          <option value="product">
+          <option value="quote">
+          <option value="rank">
+          <option value="rationalize">
+          <option value="real">
+          <option value="rect">
+          <option value="rotate">
+          <option value="run">
+          <option value="simplify">
+          <option value="sin">
+          <option value="sinh">
+          <option value="sqrt">
+          <option value="stop">
+          <option value="sum">
+          <option value="tan">
+          <option value="tanh">
+          <option value="test">
+          <option value="trace">
+          <option value="transpose">
+          <option value="unit">
+          <option value="zero">
+        </datalist>
+        
+        <input type="text" list="browsers" id="input" autocapitalize="none" minlength="2" >
+        <button id="execute">Run</button>
+      </div>
+
+
+     
+      
+      <textarea id="buffer" autocapitalize="none" spellcheck="false" placeholder="script..."></textarea>
+      
+
+    </div>
+
+
+    
+  </body>
+
+  
+</html>

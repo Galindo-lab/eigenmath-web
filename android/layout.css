@@ -1,0 +1,67 @@
+
+body {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    font-size: 1.2em;
+    font-family:courier;
+
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    /* transition-duration: 1s; */
+}
+
+#stdout {
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 85vh;
+    padding: 0.5em;
+    padding-bottom: 25vh;
+    user-select: none; 
+}
+
+#stdin {
+    height: 100%;
+}
+
+.navbar {
+    display: flex;
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* height: 25vh; */
+    border: 1px solid black;
+
+    flex-direction: column;
+}
+
+.navbar > #buffer {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    padding: 0.2em;
+    font-size: 1em;
+    font-family:courier;
+
+}
+
+button {
+    font-family:courier;
+    height: 30px;
+    width: 60px;
+}
+
+input {
+    font-family:courier;
+    font-size: 1em;
+    width: 100%;
+}
+
+.outline {
+    display: flex;
+}
