@@ -2,8 +2,10 @@
 
 <html lang="en">
   <head>
+    <title>Eigenmath web</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="icon" type="image/png" href="./status.png" sizes="16x16">
 
     <script defer src="https://georgeweigt.github.io/eigenmath.js"></script>
     <script defer src="./functions.js"></script>
@@ -20,13 +22,13 @@
       }
 
       #stdout {
+          margin-top: 5vh;
           margin-bottom: 50vh;
           padding: 8px;
           user-select: none;
           overflow-x: auto;
-          height: 90vh;
+          height: 100vh;
       }
-
 
       .bottom {
           display: flex;
@@ -91,42 +93,43 @@
       img {
           margin: 2em;
       }
-      
+
+
+
     </style>
-    
+
     
   </head>
 
   <body>
 
-    <textarea
-      id="stdin"
-      autocapitalize="none"
-      resize="no"
-      style="display:none;"
-      >trace=1</textarea>
+    <textarea id="stdin" style="display:none;">trace=1</textarea>
 
-    <!-- derecha -->
-    <!-- <div class="top"> -->
+  
+    <!-- stdout -->
       <div id="stdout">
 
         <presentation>
-          <img width="224px" src="./status.png">
+          <img width="160px" src="./status.png">
           <b>Eigenmath</b><br>
           
           <i>"Now I will have less<br>distraction."</i><br>
           - Leonard Euler
+
+          <br><br>
+          <a href="https://georgeweigt.github.io/help.html">Help</a>
+          
         </presentation>
 
       </div>
-      <!-- </div> -->
+
 
     
     <div class="bottom">
 
       <div class="outline">
 
-        <datalist id="browsers">
+        <datalist id="functions">
           <option value="abs">
           <option value="adj">
           <option value="and">
@@ -214,7 +217,7 @@
           <option value="zero">
         </datalist>
         
-        <input type="text" list="browsers" id="input" autocapitalize="none" minlength="2" >
+        <input type="text" list="functions" id="input" autocapitalize="none" minlength="2" >
         <button id="execute">Run</button>
       </div>
 
@@ -230,5 +233,6 @@
     
   </body>
 
+  
   
 </html>

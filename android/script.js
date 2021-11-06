@@ -1,6 +1,8 @@
 
-ENTER_KEY_CODE = 13
-
+window.onload = () => {
+    $("input").setAttribute("list",window.localStorage.getItem("list"));
+    $("buffer").value = window.localStorage.getItem("buffer");
+};
 
 function removeStdinLastLine() {
     let stdin = $("stdin")
@@ -24,7 +26,6 @@ function isCommnad() {
 }
 
 function executeCommand(){
-
     let parts = $("input").value.split(' ')
     let expr =  parts[0]
     
@@ -41,6 +42,16 @@ function executeCommand(){
     case ":load":
         $("buffer").value = window.localStorage.getItem(parts[1]);
         break;
+
+    case ":disable":
+        $("input").setAttribute("list", "");
+        window.localStorage.setItem("list","");
+        break;
+
+    case ":enable":
+        $("input").setAttribute("list", "functions"); 
+        window.localStorage.setItem("list","functions");
+        break;
         
     default:
         alert("Comando error");
@@ -48,10 +59,14 @@ function executeCommand(){
 }
 
 $("input").addEventListener("keyup", (event) => {
+    let ENTER_KEY_CODE = 13
+    
     if (event.keyCode === ENTER_KEY_CODE) {
         event.preventDefault();
 
-        if(syntaxError()){ removeStdinLastLine() }
+        if(syntaxError()){
+            removeStdinLastLine()
+        }
 
         if( isCommnad() ) {
             executeCommand();
@@ -75,6 +90,7 @@ $("input").addEventListener("blur", (event) => {
 });
 
 $("buffer").addEventListener("change", () => {
+    window.localStorage.setItem("buffer",$("buffer").value);
     $("stdin").value = "trace=1\n" + $("buffer").value;
 });
 
