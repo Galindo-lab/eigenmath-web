@@ -89,6 +89,10 @@ $("input").addEventListener("blur", (event) => {
     $("buffer").style.display = "block";
 });
 
+$("buffer").addEventListener("focus", (event) => {
+    $("input").value = "";
+});
+
 $("buffer").addEventListener("change", () => {
     window.localStorage.setItem("buffer",$("buffer").value);
     $("stdin").value = "trace=1\n" + $("buffer").value;
@@ -96,10 +100,54 @@ $("buffer").addEventListener("change", () => {
 
 $("execute").addEventListener("click", () => {
 
-    if ( $("input").value != "" ) {
-        $("stdin").value = "trace=1\n" + $("buffer").value + "\n" + $("input").value;
+    let minibuffuer = $("input")
+    let stdin = $("stdin")
+
+
+    if(minibuffuer.value === "") {
+        $("stdin").value = "trace=1\n" + $("buffer").value;
+        run();        
+    } else if(minibuffuer.value != "") {
+        if(syntaxError()){
+            removeStdinLastLine()
+        }
+
+        if( isCommnad() ) {
+            executeCommand();
+        } else {
+            if(stdin.value != "trace=1"){
+                $("stdin").value += "\n" + $("input").value;
+            } else {
+                $("stdin").value = "trace=1\n" + $("buffer").value+"\n" + $("input").value;
+            }
+            
+                
+            
+            run();
+        }
+
         clearInput();
-    } 
+    }
     
-    run();
+    
+
+    // if ( $("input").value != "" ) {
+    //     if(syntaxError()){
+    //         removeStdinLastLine()
+    //     }
+
+    //     if( isCommnad() ) {
+    //         executeCommand();
+    //     } else {
+    //         $("stdin").value = "trace=1\n" + $("input").value;
+    //         run();
+    //     }
+
+    //     clearInput();
+    // } else if ( $("input").value == "" ) {
+    //     $("stdin").value = "trace=1\n" + $("buffer").value;
+    //     run();
+    // }
+    
+    // run();
 });
