@@ -5,101 +5,12 @@
     <title>Eigenmath web</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="icon" type="image/png" href="./status.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="./resources/images/status.png" sizes="16x16">
 
-    <!-- <script defer src="https://georgeweigt.github.io/eigenmath.js"></script> -->
-    <link rel="stylesheet" href="style.css">
-    <script defer src="./eigenmath.js"></script>
-    <script defer src="./functions.js"></script>
-    <script defer src="./script.js"></script>
-
-    <style>
-
-      body {
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          font-family:courier;
-          font-size: 1em;
-      }
-
-      #stdout {
-          /* margin-top: 5vh; */
-          margin-bottom: 50vh;
-          padding: 8px;
-          user-select: none;
-          overflow-x: auto;
-          height: 100vh;
-      }
-
-      .bottom {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          position: fixed;
-          bottom: 0;
-          overflow: hidden;
-      }
-
-      .outline {
-          display: flex;          
-          width: 100%;
-      }
-
-      #input {
-          width: 100%;
-      }
-
-      button {
-          font-family:courier;
-          width: 96px;
-          height: 48px;
-          border: 1px solid gray;
-          border-left: 0;
-          outline: none;
-          font-size: 1em;
-          
-      }
-
-      input {
-          padding: 8px;
-          border: 1px solid gray;
-          font-family:courier;
-          outline: none;
-          font-size: 1em;
-      }
-
-      #buffer {
-          font-size: 1.2em;
-          font-family:courier;
-          max-height: 100%;
-          width: 100%;
-          resize: none;
-          border: 0;
-          margin: 0;
-          padding: 8px;
-          outline: none;
-      }
-
-      #buffer:focus {
-          height: 300px;
-      }
-
-      presentation {
-          display: flex;
-          height: 90vh;
-          flex-direction: column;
-          align-items: center;
-      }
-
-      img {
-          margin: 2em;
-      }
-
-
-
-    </style>
-
+    <link rel="stylesheet" href="style/style.css">
+    <script defer src="./script/eigenmath.js"></script>
+    <script defer src="./script/functions.js"></script>
+    <script defer src="./script/script.js"></script>
     
   </head>
 
@@ -111,7 +22,7 @@
       <div id="stdout">
 
         <presentation>
-          <img width="160px" src="./status.png">
+          <img width="160px" src="./resources/images/status.png">
           <b>Eigenmath</b><br>
           
           <i>"Now I will have less<br>distraction."</i><br>
