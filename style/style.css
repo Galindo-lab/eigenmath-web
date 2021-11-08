@@ -1,0 +1,80 @@
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family:courier;
+    font-size: 1em;
+}
+
+#stdout {
+    margin-bottom: 50vh;
+    padding: 8px;
+    user-select: none;
+    overflow-x: auto;
+    height: 100vh;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.outline {
+    display: flex;          
+    width: 100%;
+}
+
+#input {
+    width: 100%;
+}
+
+button {
+    font-family:courier;
+    width: 96px;
+    height: 48px;
+    border: 1px solid gray;
+    border-left: 0;
+    outline: none;
+    font-size: 1em;
+    
+}
+
+input {
+    padding: 8px;
+    border: 1px solid gray;
+    font-family:courier;
+    outline: none;
+    font-size: 1em;
+}
+
+#buffer {
+    font-size: 1.2em;
+    font-family:courier;
+    max-height: 100%;
+    width: 100%;
+    resize: none;
+    border: 0;
+    margin: 0;
+    padding: 8px;
+    outline: none;
+}
+
+#buffer:focus {
+    height: 300px;
+}
+
+presentation {
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    margin: 2em;
+}
