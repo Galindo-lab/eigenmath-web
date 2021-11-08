@@ -1,126 +1,153 @@
 
+window.onload = () => {
+    $("input").setAttribute("list",window.localStorage.getItem("list"));
+    $("buffer").value = window.localStorage.getItem("buffer");
+};
 
+function removeStdinLastLine() {
+    let stdin = $("stdin")
+    let value = stdin.value
+    let lines = value.split('\n')
+    lines.splice(lines.length - 1)
+    stdin.value = lines.join('\n')
+}
 
-$("run").addEventListener("click", ()=>{
-    run()
-});
+function syntaxError() {
+    let error = '<span style="color:red;font-family:courier">';
+    return $("stdout").innerHTML.includes(error)
+}
 
-//https://stackoverflow.com/questions/34082002/html-button-opening-link-in-new-tab
-$("manual").addEventListener("click", ()=>{
-    window.open('https://georgeweigt.github.io/eigenmath.pdf','_blank')
-});
+function clearInput() {
+    $("input").value = ""    
+}
 
-$("reference").addEventListener("click", ()=>{
-    window.open('https://georgeweigt.github.io/help.html','_blank')
-});
+function isCommnad() {
+    return $("input").value.charAt(0) === ':'
+}
 
-$("clear").addEventListener("click", ()=>{
-    document.getElementById("stdout").innerHTML = "";
-});
-
-$("save").addEventListener("click", ()=>{
-
-    if( $("file-name").value !== "" && $("stdin").value !== "" ){
-        saveFile($("file-name").value, $("stdin").value);
-      
-    } else {
-        alert("space name is empty");
-    }
+function executeCommand(){
+    let parts = $("input").value.split(' ')
+    let expr =  parts[0]
     
-});
+    switch (expr) {
+    case ":alert":
+        alert(parts[1]);
+        break;
 
-$("load").addEventListener("click", ()=>{
-    document.getElementById('file').click();
-});
+    case ":save":
+        alert("save done")
+        window.localStorage.setItem(parts[1], $("buffer").value);
+        break;
 
+    case ":load":
+        $("buffer").value = window.localStorage.getItem(parts[1]);
+        break;
 
-// $("stdin").addEventListener('keyup',()=> {
-//     run()
-// });
+    case ":disable":
+        $("input").setAttribute("list", "");
+        window.localStorage.setItem("list","");
+        break;
 
-
-
-let input = document.getElementById('file');
-let textarea = document.querySelector('textarea')
-
-// This event listener has been implemented to identify a
-// Change in the input section of the html code
-// It will be triggered when a file is chosen.
-input.addEventListener('change', () => {
-    let files = input.files;
-    
-    if (files.length == 0) return;
-    
-    const file = files[0];
-
-    // document.getElementById("file").files[0].name
-    
-    let reader = new FileReader();
-    
-    reader.onload = (e) => {
-        const file = e.target.result;
-        document.getElementById("file-name").value = files[0].name;
+    case ":enable":
+        $("input").setAttribute("list", "functions"); 
+        window.localStorage.setItem("list","functions");
+        break;
         
-        const lines = file.split(/\r\n|\n/);
-        textarea.value = lines.join('\n');
-        run()
-    };
+    default:
+        alert("Comando error");
+    }
+}
+
+$("input").addEventListener("keyup", (event) => {
+    let ENTER_KEY_CODE = 13
     
-    reader.onerror = (e) => alert(e.target.error.name);
-    
-    reader.readAsText(file);
+    if (event.keyCode === ENTER_KEY_CODE) {
+        event.preventDefault();
+
+        if(syntaxError()){
+            removeStdinLastLine()
+        }
+
+        if( isCommnad() ) {
+            executeCommand();
+        } else {
+            $("stdin").value += "\n" + $("input").value;
+            run();
+        }
+
+        clearInput();
+        
+    }
 });
 
 
-// LZW-compress a string
-function lzw_encode(s) {
-    var dict = {};
-    var data = (s + "").split("");
-    var out = [];
-    var currChar;
-    var phrase = data[0];
-    var code = 256;
-    for (var i=1; i<data.length; i++) {
-        currChar=data[i];
-        if (dict[phrase + currChar] != null) {
-            phrase += currChar;
-        }
-        else {
-            out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-            dict[phrase + currChar] = code;
-            code++;
-            phrase=currChar;
-        }
-    }
-    out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-    for (var i=0; i<out.length; i++) {
-        out[i] = String.fromCharCode(out[i]);
-    }
-    return out.join("");
-}
+$("input").addEventListener("focus", (event) => {
+    $("buffer").style.display = "none";
+});
 
-// Decompress an LZW-encoded string
-function lzw_decode(s) {
-    var dict = {};
-    var data = (s + "").split("");
-    var currChar = data[0];
-    var oldPhrase = currChar;
-    var out = [currChar];
-    var code = 256;
-    var phrase;
-    for (var i=1; i<data.length; i++) {
-        var currCode = data[i].charCodeAt(0);
-        if (currCode < 256) {
-            phrase = data[i];
+$("input").addEventListener("blur", (event) => {
+    $("buffer").style.display = "block";
+});
+
+$("buffer").addEventListener("focus", (event) => {
+    $("input").value = "";
+});
+
+$("buffer").addEventListener("change", () => {
+    window.localStorage.setItem("buffer",$("buffer").value);
+    $("stdin").value = "trace=1\n" + $("buffer").value;
+});
+
+$("execute").addEventListener("click", () => {
+
+    let minibuffuer = $("input")
+    let stdin = $("stdin")
+
+
+    if(minibuffuer.value === "") {
+        $("stdin").value = "trace=1\n" + $("buffer").value;
+        run();        
+    } else if(minibuffuer.value != "") {
+        if(syntaxError()){
+            removeStdinLastLine()
         }
-        else {
-           phrase = dict[currCode] ? dict[currCode] : (oldPhrase + currChar);
+
+        if( isCommnad() ) {
+            executeCommand();
+        } else {
+            if(stdin.value != "trace=1"){
+                $("stdin").value += "\n" + $("input").value;
+            } else {
+                $("stdin").value = "trace=1\n" + $("buffer").value+"\n" + $("input").value;
+            }
+            
+                
+            
+            run();
         }
-        out.push(phrase);
-        currChar = phrase.charAt(0);
-        dict[code] = oldPhrase + currChar;
-        code++;
-        oldPhrase = phrase;
+
+        clearInput();
     }
-    return out.join("");
-}
+    
+    
+
+    // if ( $("input").value != "" ) {
+    //     if(syntaxError()){
+    //         removeStdinLastLine()
+    //     }
+
+    //     if( isCommnad() ) {
+    //         executeCommand();
+    //     } else {
+    //         $("stdin").value = "trace=1\n" + $("input").value;
+    //         run();
+    //     }
+
+    //     clearInput();
+    // } else if ( $("input").value == "" ) {
+    //     $("stdin").value = "trace=1\n" + $("buffer").value;
+    //     run();
+    // }
+    
+    // run();
+});

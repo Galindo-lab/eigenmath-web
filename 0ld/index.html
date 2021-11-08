@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <script defer src="https://georgeweigt.github.io/eigenmath.js"></script>
+    <script defer src="./functions.js"></script>
+    <script defer src="./script.js"></script>
+    
+  </head>
+
+  <body>
+    <!-- izquierda -->
+    <div class="side" id="left">
+
+      <!-- nombre y manual -->
+      <div class="title">
+        <input id="file-name" type="text" placeholder="Untitled document">
+      </div>
+
+      <div class="menu">
+        <input type="file" id="file" style="display: none;" />
+        <button title="Load" id="load"> Load </button>
+        <button title="Save" id="save"> Save </button>
+        <button title="Clear" id="clear"> Clear </button>
+        |
+        <button title="Reference" id="reference"> Reference </button>
+        <button title="Manual" id="manual"> Manual </button>
+      </div>
+
+      <!-- textarea -->
+      <div class="stdin-outline">
+        <textarea id="stdin"></textarea>
+      </div>
+      
+      <!-- menu de botones -->
+      <div class="menu-bottom">
+        <!-- <button>aaaaaaaaa</button> -->
+        <a href="https://galindosoft.neocities.org/">Galindosoft</a>
+        <button id="run">Run ►</button>
+      </div>
+
+    </div>
+
+
+    <!-- derecha -->
+    <div class="side" id="right">
+      <div id="stdout"></div>
+    </div>
+    
+  </body>
+</html>
