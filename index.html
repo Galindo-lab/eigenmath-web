@@ -8,9 +8,15 @@
     <link rel="icon" type="image/png" href="./resources/images/status.png" sizes="16x16">
 
     <link rel="stylesheet" href="style/style.css">
+
     <script defer src="./script/eigenmath.js"></script>
+
     <script defer src="./script/functions.js"></script>
+    <script defer src="./script/onload.js"></script>
+    
+    <script defer src="./script/commands.js"></script>
     <script defer src="./script/script.js"></script>
+    <script defer src="./script/ui.js"></script>
     
   </head>
 
@@ -19,6 +25,7 @@
     <textarea id="stdin" style="display:none;">trace=1</textarea>
   
     <!-- stdout -->
+    <div class="stdin-outline">
       <div id="stdout">
 
         <presentation>
@@ -34,6 +41,7 @@
         </presentation>
 
       </div>
+    </div>
 
 
     
@@ -136,7 +144,54 @@
 
       
       
-      <textarea id="buffer" autocapitalize="none" spellcheck="false" placeholder="script..."></textarea>
+      <textarea id="buffer" autocapitalize="none" spellcheck="false" placeholder="script...">
+a=1/(1/470+1/2200)
+a
+float
+
+b=1/(1/100+1/470)
+b
+float
+
+rt=a+b+100
+rt 
+float
+
+it=-4/rt
+it
+float
+
+# Voltajes
+v1=it*100
+v1
+float
+
+v2=it*a
+v2
+float
+
+v3=it*b
+v3
+float
+
+#potencia independiente
+(v1/100)*v1
+float
+
+(v2/470)*v2
+float
+
+(v2/2200)*v2
+float
+
+(v3/100)*v3
+float
+
+(v3/470)*v3
+float
+
+# potencia
+      </textarea>
       
 
     </div>

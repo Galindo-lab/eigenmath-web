@@ -7,12 +7,13 @@ body {
     font-size: 1em;
 }
 
+
 #stdout {
-    margin-bottom: 50vh;
     padding: 8px;
+    padding-bottom: 50vh;
     user-select: none;
     overflow-x: auto;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .bottom {
