@@ -13,7 +13,6 @@ body {
     padding-bottom: 50vh;
     user-select: none;
     overflow-x: auto;
-    /* height: 100vh; */
 }
 
 .bottom {
@@ -57,12 +56,15 @@ input {
     font-size: 1.2em;
     font-family:courier;
     max-height: 100%;
-    width: 100%;
+    width: calc(100%-16px);
     resize: none;
     border: 0;
     margin: 0;
     padding: 8px;
+    /* padding: 0px; */
     outline: none;
+    border-left: 1px solid grey ;
+    border-right: 1px solid grey ;
 }
 
 #buffer:focus {
@@ -71,7 +73,7 @@ input {
 
 presentation {
     display: flex;
-    height: 90vh;
+    /* height: 90vh; */
     flex-direction: column;
     align-items: center;
 }
