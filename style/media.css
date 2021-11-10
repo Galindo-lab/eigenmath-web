@@ -1,13 +1,11 @@
-@media (min-width:1025px)  {
+@media (min-width:1024px)  {
 
     body {
-        /* background-color: grey; */
         flex-direction: row-reverse;
         height: 100vh;
     }
 
     .bottom {
-        height: ;
         width: 50%;
         position: inherit;
         flex-direction: column-reverse;
@@ -21,11 +19,10 @@
     #stdout {
         padding-bottom: 0;
         overflow-x: auto;
-
+        height: calc(100vh - 8px);
     }
 
     #buffer {
-        width: ;
         height: 100%;
     }
     
