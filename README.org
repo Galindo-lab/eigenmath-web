@@ -1,0 +1,14 @@
+#+title: Eigenmath web
+#+author: Galindo
+
+* About Eigenmath
+
+Interfaz web creada por mi para Eigenmath. Eigenmath Core es desarollado por George Weigt y su sitio official es https://georgeweigt.github.io/, el codigo fuente de eigenmath esta disponible en https://github.com/georgeweigt/eigenmath. Eigenmath core esta bajo la licencia BSD-2. 
+
+* Version web
+https://galindosoft.neocities.org/eigen/android/index.html
+
+* Version para Android
+https://www.mediafire.com/file/nrky2q797whgggl/app-release.apk/file
+
+
