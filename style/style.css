@@ -13,7 +13,7 @@ body {
     padding-bottom: 50vh;
     user-select: none;
     overflow-x: auto;
-
+    height: 85vh;
 }
 
 .bottom {
