@@ -13,7 +13,7 @@
 
     .stdin-outline {
         width: 100%;
-        overflow-y: scroll;
+        overflow-y: hidden;
     }
     
     #stdout {

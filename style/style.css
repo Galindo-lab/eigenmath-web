@@ -10,10 +10,11 @@ body {
 
 #stdout {
     padding: 8px;
-    padding-bottom: 50vh;
+    padding-bottom: 200px;
     user-select: none;
     overflow-x: auto;
-    height: 85vh;
+    /* height: 82vh; */
+    /* overflow-y: scroll; */
 }
 
 .bottom {
