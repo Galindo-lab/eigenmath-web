@@ -1,40 +1,26 @@
-// aquí van todos los scripts para controlar la interfaz
+/** 
+ * reducir y expandir el minibuffer cuando la pantalla es mas pequeña.
+ * de 1023px.
+ */
 
 function toggleBuffer() {
     let buffer_display = $("buffer").style.display;
-    switch(buffer_display) {
-    case "none":
-        // oculta el buffer principal al seleccionar el minibuffer para hacer mas accesible el minibuffer.
-        $("buffer").style.display = "block";
-        break;
-        // al perder el focus, el buffer principal se vuleve a hacer visible 
-    case "block":
-        $("buffer").style.display = "none";
-        break;
 
-    default:
+    if( buffer_display == "block" && window.screen.availWidth <= 1023 ) {
+        $("buffer").style.display = "block";
+    } else {
         $("buffer").style.display = "none";
-        break;
     }
 }
 
 
+// ---------------------------------------------------------
 
-$("input").addEventListener("focus", (event) => {
-    if(window.screen.availWidth <= 1023){
-        toggleBuffer();
-    }
-    // $("buffer").style.display = "none";
-});
 
-$("input").addEventListener("blur", (event) => {
-    if(window.screen.availWidth <= 1023){
-        toggleBuffer();
-    }
-    // $("buffer").style.display = "block";
-});
+$("input").addEventListener("focus", toggleBuffer);
 
-// al seleccioar el buffer principal limpia el minibuffer
+$("input").addEventListener("blur", toggleBuffer);
+
 $("buffer").addEventListener("focus", (event) => {
     $("input").defaultValue;
 });

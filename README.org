@@ -12,7 +12,7 @@ Interfaz web creada por mi para Eigenmath. Eigenmath Core es desarollado por Geo
   + [-] Refactorizando código.
     - [X] script.js
     - [X] commands.js
-    - [ ] ui.js
+    - [X] ui.js
     - [ ] onload.js
   + [ ] Pantalla de inicio.
   + [ ] Version de Escriorio.
