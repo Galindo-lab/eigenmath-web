@@ -11,7 +11,6 @@ function removeStdinLastLine() {
     stdin.value = lines.join('\n')
 }
 
-
 function clearInput() {
     $("input").value = "";
 }
@@ -20,69 +19,52 @@ function isCommnad() {
     return $("input").value.charAt(0) === ':';
 }
 
+function evalBuffer() {
+    $("stdin").value = [
+        "trace=1",
+        $("buffer").value,
+    ].join("\n");
 
+    run();
+}
 
-$("input").addEventListener("keyup", (event) => {
-    let ENTER_KEY_CODE = 13
-    
-    if (event.keyCode === ENTER_KEY_CODE) {
-        event.preventDefault();
-
-        if(syntaxError()){
+function evalMinibuffer() {
+    if (isCommnad()) {
+        executeCommand($("input").value);
+    } else {
+        if (syntaxError()) {
             removeStdinLastLine()
-        }
-
-        if( isCommnad() ) {
-            executeCommand($("input").value);
         } else {
             $("stdin").value += "\n" + $("input").value;
             run();
         }
+    }
+    clearInput();
+}
 
-        clearInput();
-        
+
+$("input").addEventListener("keyup", (event) => {
+    let ENTER_KEY_CODE = 13;
+    if (event.keyCode === ENTER_KEY_CODE) {
+        event.preventDefault();
+        evalMinibuffer();
     }
 });
 
+$("execute").addEventListener("click", () => {
+    let minibuffuer = $("input");
+    let buffer = $("buffer");
+    let stdin = $("stdin");
 
+    if (minibuffuer.value != "") {
+        evalMinibuffer();
+    } else {
+        evalBuffer();
+    }
+});
 
 
 $("buffer").addEventListener("change", () => {
-    window.localStorage.setItem("buffer",$("buffer").value);
+    window.localStorage.setItem("buffer", $("buffer").value);
     $("stdin").value = "trace=1\n" + $("buffer").value;
-});
-
-
-
-$("execute").addEventListener("click", () => {
-
-    let minibuffuer = $("input")
-    let stdin = $("stdin")
-
-
-    if(minibuffuer.value === "") {
-        $("stdin").value = "trace=1\n" + $("buffer").value;
-        run();        
-    } else if(minibuffuer.value != "") {
-        if(syntaxError()){
-            removeStdinLastLine()
-        }
-
-        if( isCommnad() ) {
-            executeCommand();
-        } else {
-            if(stdin.value != "trace=1"){
-                $("stdin").value += "\n" + $("input").value;
-            } else {
-                $("stdin").value = "trace=1\n" + $("buffer").value+"\n" + $("input").value;
-            }
-            
-                
-            
-            run();
-        }
-
-        clearInput();
-    }
-    
 });
