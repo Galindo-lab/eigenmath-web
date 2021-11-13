@@ -36,12 +36,31 @@ function clearInput() {
 
 /**
  * Comprobar si el contenido del minibuffer es un comando.
+ */
+
+function isCommnad() {
+    return $("input").value.charAt(0) === '/';
+}
+
+/**
+ * Ejecutar un comando.
  * NOTE: En este contexto se refiera a las acciones que puede ejecutar js
  *       *No* a comandos de eigenmath. Revisar commands.js para más información
  */
 
-function isCommnad() {
-    return $("input").value.charAt(0) === ':';
+function executeCommand(string_input) {
+    function removeFirstChar(s) {
+        return s.substring(1);
+    }
+    
+    let parts = string_input.split(' ');
+    let expr = removeFirstChar(parts[0]);
+    
+    if(!command[expr]) {
+        command["default"]();
+    } else {
+        command[expr](parts);
+    }
 }
 
 /**
@@ -92,7 +111,6 @@ $("input").addEventListener("keyup", (event) => {
 $("execute").addEventListener("click", () => {
     let minibuffuer = $("input");
     let buffer = $("buffer");
-    let stdin = $("stdin");
 
     if (minibuffuer.value != "") {
         evalMinibuffer();

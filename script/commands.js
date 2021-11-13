@@ -1,36 +1,35 @@
 
+/*
+ * Commandos para la interfaz.
+ * NOTE: En el futuro algunos de los comandos se podran remplazar con botones
+ *       en la GUI.
+ */ 
 
-
-function executeCommand(string_input){
-    console.log(string_input)
-    let parts = string_input.split(' ')
-    let expr = parts[0]
+var command = {
+    ["alert"]: (argv) => {
+        alert(argv[1]);
+    },
     
-    switch (expr) {
-    case ":alert":              // crear una alert con algun mensaje
-        alert(parts[1]);
-        break;
-
-    case ":save":               // guardar buffer
+    ["save"]: (argv) => {
         alert("save done")
         window.localStorage.setItem(parts[1], $("buffer").value);
-        break;
-
-    case ":load":               // cargar un buffer 
+    },
+    
+    ["load"]: (argv) => {
         $("buffer").value = window.localStorage.getItem(parts[1]);
-        break;
-
-    case ":disable":            // desactivar autocompletado
+    },
+    
+    ["disable"]: (argv) => {
         $("input").setAttribute("list", "");
         window.localStorage.setItem("list","");
-        break;
+    },
 
-    case ":enable":             // activar autocompletado
+    ["enable"]: (argv) => {
         $("input").setAttribute("list", "functions"); 
         window.localStorage.setItem("list","functions");
-        break;
-        
-    default:
-        alert("Comando error");
+    },
+
+    ["default"]: () => {
+        alert("Comando inexistente");
     }
 }
