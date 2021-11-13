@@ -1,7 +1,21 @@
+/** 
+ * Determinar si el código evaluado es invalido.
+ * HACK: A fecha de hoy eigenmath.js no tiene una función para determinar
+ *       si el código evaluado es valido, esta es la solución debería ser
+ *       reemplazada por algo más propio en cuanto una solución oficial este
+ *       disponible.
+ */
+
 function syntaxError() {
     let error = '<span style="color:red;font-family:courier">';
     return $("stdout").innerHTML.includes(error)
 }
+
+/**
+ * Eliminar el ultimo carácter de el textarea stdin.
+ * NOTE: El codigo que evalua eigenmath.js tiene que estar en este textarea
+ *       sí no el codigo no se evaluará.
+ */
 
 function removeStdinLastLine() {
     let stdin = $("stdin")
@@ -11,13 +25,30 @@ function removeStdinLastLine() {
     stdin.value = lines.join('\n')
 }
 
+/**
+ * Eliminar el contenido del minibuffuer.
+ * TODO: renombrar "input" a "minibuffuer"
+ */
+
 function clearInput() {
     $("input").value = "";
 }
 
+/**
+ * Comprobar si el contenido del minibuffer es un comando.
+ * NOTE: En este contexto se refiera a las acciones que puede ejecutar js
+ *       *No* a comandos de eigenmath. Revisar commands.js para más información
+ */
+
 function isCommnad() {
     return $("input").value.charAt(0) === ':';
 }
+
+/**
+ * Evaluar el contenido del buffer.
+ * NOTE: El codigo que evalua eigenmath.js tiene que estar en este textarea
+ *       sí no el codigo no se evaluará.
+ */
 
 function evalBuffer() {
     $("stdin").value = [
@@ -27,6 +58,10 @@ function evalBuffer() {
 
     run();
 }
+
+/**
+ * Evaluar el contenido del minibuffer y limpiar el minibuffer.
+ */
 
 function evalMinibuffer() {
     if (isCommnad()) {
@@ -41,6 +76,9 @@ function evalMinibuffer() {
     }
     clearInput();
 }
+
+
+// ---------------------------------------------------------
 
 
 $("input").addEventListener("keyup", (event) => {
@@ -62,7 +100,6 @@ $("execute").addEventListener("click", () => {
         evalBuffer();
     }
 });
-
 
 $("buffer").addEventListener("change", () => {
     window.localStorage.setItem("buffer", $("buffer").value);
