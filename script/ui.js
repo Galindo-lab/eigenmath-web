@@ -5,11 +5,12 @@
 
 function toggleBuffer() {
     let buffer_display = $("buffer").style.display;
-
-    if( buffer_display == "block" && window.screen.availWidth <= 1023 ) {
-        $("buffer").style.display = "block";
-    } else {
-        $("buffer").style.display = "none";
+    if(window.screen.availWidth <= 1023) {                
+        if( buffer_display == "block" ) {
+            $("buffer").style.display = "block";
+        } else {
+            $("buffer").style.display = "none";
+        }
     }
 }
 
