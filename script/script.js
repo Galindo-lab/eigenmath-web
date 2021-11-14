@@ -70,11 +70,7 @@ function executeCommand(string_input) {
  */
 
 function evalBuffer() {
-    $("stdin").value = [
-        "trace=1",
-        $("buffer").value,
-    ].join("\n");
-
+    $("stdin").value = $("buffer").value;
     run();
 }
 
@@ -121,5 +117,5 @@ $("execute").addEventListener("click", () => {
 
 $("buffer").addEventListener("change", () => {
     window.localStorage.setItem("buffer", $("buffer").value);
-    $("stdin").value = "trace=1\n" + $("buffer").value;
+    $("stdin").value = $("buffer").value;
 });

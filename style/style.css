@@ -48,7 +48,7 @@ button {
 
 button:active {
     background-color: #004C8A;
-        border-color: #004C8A;
+    border-color: #004C8A;
 }
 
 input {
