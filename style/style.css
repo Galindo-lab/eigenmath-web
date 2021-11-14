@@ -36,14 +36,19 @@ button {
     font-family:courier;
     width: 96px;
     height: 48px;
-    border: 1px solid gray;
     border-left: 0;
     outline: none;
     font-size: 1em;
+    user-select: none;
+
+    background-color: #157FBD;
+    border-color: #157FBD;
+    color: white;
 }
 
 button:active {
-    background-color: gray;
+    background-color: #004C8A;
+        border-color: #004C8A;
 }
 
 input {
@@ -63,10 +68,8 @@ input {
     border: 0;
     margin: 0;
     padding: 8px;
-    /* padding: 0px; */
     outline: none;
-    border-left: 1px solid grey ;
-    border-right: 1px solid grey ;
+
 }
 
 #buffer:focus {
@@ -75,7 +78,6 @@ input {
 
 presentation {
     display: flex;
-    /* height: 90vh; */
     flex-direction: column;
     align-items: center;
 }
@@ -83,3 +85,8 @@ presentation {
 img {
     margin: 2em;
 }
+
+a {
+    color: #0068E0;
+}
+

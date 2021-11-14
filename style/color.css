@@ -1,0 +1,39 @@
+
+@media (prefers-color-scheme: dark) {
+
+    #stdout {
+        color: white;
+        background-color: #131313;
+    }
+
+    #input {
+        background-color: #212121;
+        border-color: #5A5A5A;
+        color: #fff;
+    }
+
+    #buffer {
+        color: #fff;
+        background-color: #212121;
+        border-color: #5A5A5A;
+    }
+
+    span {
+        font-weight: 900;
+    }
+
+    svg > text {
+        fill: white  !important;
+        
+    }
+
+    svg > line {
+        stroke: white !important;
+        
+    }
+
+    svg > circle {
+        fill: white !important;
+        stroke: white !important;
+    }
+}
