@@ -1,8 +1,13 @@
-// aquí van los scrips de inicio
+
+/** 
+ * Restaurar las configuraciones
+ *   
+ * - localstorage
+ *   + list: mostar autocompletado en el minibuffer
+ *   + buffer: contenido del buffer 
+ */
 
 window.onload = () => {
-    // autocompletado completado
     $("input").setAttribute("list",window.localStorage.getItem("list"));
-    // recargar el contenido del buffer principal
     $("buffer").value = window.localStorage.getItem("buffer");
 };
