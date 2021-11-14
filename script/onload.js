@@ -3,7 +3,7 @@
  * Restaurar las configuraciones
  *   
  * - localstorage
- *   + list: mostar autocompletado en el minibuffer
+ *   +   list: mostar autocompletado en el minibuffer
  *   + buffer: contenido del buffer 
  */
 
