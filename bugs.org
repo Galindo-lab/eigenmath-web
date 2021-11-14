@@ -1,4 +1,3 @@
-| código | descripcion                          |
-|--------+--------------------------------------|
-| 14N21  | el buffer no vuelve a aparecer       |
-|        | cuando el minibuffer pierde el focus |
+#+TITLE: BUGS
+
+- [ ] 14N21 :: el buffer no vuelve a aparecer cuando el minibuffer pierde el focus.
