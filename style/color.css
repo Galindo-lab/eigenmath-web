@@ -18,6 +18,12 @@
         border-color: #313131;
     }
 
+    #execute {
+        background-color: #313131;
+        border-color: #313131;
+        color: white;
+    }
+
     span {
         font-weight: 900;
     }

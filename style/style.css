@@ -36,24 +36,21 @@ button {
     font-family:courier;
     width: 96px;
     height: 48px;
-    border-left: 0;
+    border: 1px solid gray;
     outline: none;
     font-size: 1em;
     user-select: none;
-
-    background-color: #157FBD;
-    border-color: #157FBD;
-    color: white;
 }
 
 button:active {
-    background-color: #004C8A;
-    border-color: #004C8A;
+    filter: brightness(85%);
 }
 
 input {
+    border: 0;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
     padding: 8px;
-    border: 1px solid gray;
     font-family:courier;
     outline: none;
     font-size: 1em;
