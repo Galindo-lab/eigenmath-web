@@ -39,7 +39,7 @@
     }
 
     svg > circle {
-        fill: white !important;
-        stroke: white !important;
+        fill: #A8C8FB !important;
+        stroke: #A8C8FB !important;
     }
 }
