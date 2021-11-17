@@ -19,4 +19,4 @@ Interfaz web creada por mi para Eigenmath. Eigenmath Core es desarollado por Geo
     - [X] commands.js
     - [X] ui.js
     - [X] onload.js
-
+ + [X] Tema obscuro añadido
