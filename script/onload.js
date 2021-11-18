@@ -5,11 +5,22 @@
  * - localstorage
  *   +   list: mostar autocompletado en el minibuffer
  *   + buffer: contenido del buffer 
+ *   +  theme: color del tema (dark, light)
  */
 
 window.onload = () => {
     $("input").setAttribute("list",window.localStorage.getItem("list"));
     $("buffer").value = window.localStorage.getItem("buffer");
+
+    let body = document.body
+
+    if( localStorage.getItem("theme") ) {
+        body.classList.value = localStorage.getItem("theme")
+    } else {
+        localStorage.setItem('theme', 'light');
+        body.classList.value =  'light' 
+    }
+    
 };
 
 function emit_graph()

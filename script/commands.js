@@ -29,6 +29,10 @@ var command = {
         window.localStorage.setItem("list","functions");
     },
 
+    ["theme"]: () => {
+        switchTheme();
+    },
+
     ["default"]: () => {
         alert("Comando inexistente");
     }

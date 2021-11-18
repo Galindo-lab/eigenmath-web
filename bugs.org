@@ -1,3 +1,12 @@
 #+TITLE: BUGS
 
-- [X] 14N21 :: el buffer no vuelve a aparecer cuando el minibuffer pierde el focus.
+* formato
+- dia
+- letra mes
+- año
+- id
+
+* Bugs
+- [X] 14N21-0 :: el buffer no vuelve a aparecer cuando el minibuffer pierde el focus.
+- [X] 17N21-0 :: al evaluar el minibuffer al inicio, trace esta actiado.
+- [ ] 17N21-1 :: si al inicio evaluas el minibuffer y tiene un error, el minibuffer no puede evaluar mas comandos.

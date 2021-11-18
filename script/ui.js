@@ -1,3 +1,17 @@
+
+function switchTheme() {
+    let body = document.body;
+    
+    if( localStorage.getItem("theme") == 'dark' ){
+        localStorage.setItem("theme", 'light')
+    } else {
+        localStorage.setItem("theme", 'dark')
+    }
+
+    body.classList.value =  localStorage.getItem("theme");
+}
+
+
 /** 
  * reducir y expandir el minibuffer cuando la pantalla es mas pequeña.
  * de 1023px.
