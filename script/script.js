@@ -84,10 +84,11 @@ function evalMinibuffer() {
     } else {
         if (syntaxError()) {
             removeStdinLastLine()
-        } else {
-            $("stdin").value += "\n" + $("input").value;
-            run();
         }
+        
+        $("stdin").value += "\n" + $("input").value;
+        run();
+        
     }
     clearInput();
 }
