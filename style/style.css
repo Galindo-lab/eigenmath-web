@@ -12,6 +12,7 @@ body {
     padding-bottom: 90vh;
     user-select: none;
     overflow-x: auto;
+    overflow-y: inherit;
 }
 
 .bottom {

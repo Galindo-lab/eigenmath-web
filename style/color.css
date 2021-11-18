@@ -13,47 +13,64 @@
     --graph: #A8C8FB;
 }
 
-/* @media (prefers-color-scheme: dark) { */
+body {
+    background-color: var(--background);
+}
 
-    #stdout {
-        color: var(--font);
-        background-color: var(--background);
-    }
+#stdout {
+    color: var(--font);
+    background-color: var(--background);
+}
 
-    #input {
-        background-color: var(--background);
-        border-color: var(--border);
-        color: var(--font);
-    }
+#input {
+    background-color: var(--background);
+    border-color: var(--border);
+    color: var(--font);
+}
 
-    #buffer {
-        color: var(--font);
-        background-color: var(--background);
-        border-color: var(--border);
-    }
+#buffer {
+    color: var(--font);
+    background-color: var(--background);
+    border-color: var(--border);
+}
 
-    #execute {
-        background-color: var(--border);
-        border-color: var(--border);
-        color: var(--font);
-    }
+#execute {
+    background-color: var(--background);
+    border-color: var(--border);
+    color: var(--font);
+}
 
-    span {
-        font-weight: 900;
-    }
+span {
+    font-weight: 900;
+}
 
-    svg > text {
-        fill: var(--font) !important;
-        
-    }
+svg > text {
+    fill: var(--font) !important;
+    
+}
 
-    svg > line {
-        stroke: var(--font) !important;
-        
-    }
+svg > line {
+    stroke: var(--font) !important;
+    
+}
 
-    svg > circle {
-        fill: var(--graph) !important;
-        stroke: var(--graph) !important;
-    }
-/* } */
+svg > circle {
+    fill: var(--graph) !important;
+    stroke: var(--graph) !important;
+}
+
+/* scrollbar color */
+
+::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+}
+
