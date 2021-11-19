@@ -29,6 +29,11 @@ var command = {
         window.localStorage.setItem("list","functions");
     },
 
+    ["clear"]: () => {
+        $("buffer").value = "";
+         window.localStorage.setItem("buffer", $("buffer").value);
+    },
+
     ["theme"]: () => {
         switchTheme();
     },
