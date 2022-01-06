@@ -9,10 +9,10 @@ body {
 
 #stdout {
     padding: 8px;
-    padding-bottom: 90vh;
+    padding-bottom: 300px;
     user-select: none;
     overflow-x: auto;
-    overflow-y: inherit;
+    overflow-y: auto;
 }
 
 .bottom {
