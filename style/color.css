@@ -3,21 +3,23 @@
     --font: #000;
     --background: #fff;
     --border: lightgray;
-    --graph: #000;    
+    --graph: #000;
+    --invert: 0;
 }
 
 .dark {
     --font: #fff;
     --background: #131313;
     --border: #313131;
-    --graph: #A8C8FB;
+    --graph: #fff;
+    --invert: 1;
 }
 
 body {
     background-color: var(--background);
 }
 
-#stdout {
+#stdout,p {
     color: var(--font);
     background-color: var(--background);
 }
@@ -44,6 +46,10 @@ span {
     font-weight: 900;
 }
 
+img {
+    filter: invert(var(--invert));
+}
+
 svg > text {
     fill: var(--font) !important;
     
@@ -57,6 +63,10 @@ svg > line {
 svg > circle {
     fill: var(--graph) !important;
     stroke: var(--graph) !important;
+}
+
+a {
+    color: #0068E0;
 }
 
 /* scrollbar color */

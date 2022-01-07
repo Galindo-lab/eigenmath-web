@@ -1,0 +1,1018 @@
+
+#+OPTIONS: html-style:nil 
+#+OPTIONS: html-scripts:nil
+# #+OPTIONS: num:nil 
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style.css" />
+#+HTML_HEAD: <script defer src="./script.js"></script>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../style/color.css" />
+
+* abs(x)
+Returns the absolute value or vector length of x.
+
+#+BEGIN_SRC 
+X = (x,y,z)
+abs(X)
+
+┌            ┐1/2
+│ 2    2    2│   
+│x  + y  + z │   
+│            │   
+└            ┘   
+#+END_SRC
+
+* adj(m)
+Returns the adjunct of matrix m. Adjunct is equal to determinant times inverse.
+
+#+BEGIN_SRC 
+A = ((a,b),(c,d))
+adj(A) == det(A) inv(A)
+
+1
+#+END_SRC
+
+* and(a,b,...)
+Returns 1 if all arguments are true (nonzero). Returns 0 otherwise.
+
+#+BEGIN_SRC 
+and(1=1,2=2)
+
+1
+#+END_SRC
+
+* arccos(x)
+Returns the arc cosine of x.
+
+#+BEGIN_SRC 
+arccos(1/2)
+
+ 1   
+╶─╴ π
+ 3   
+#+END_SRC
+
+* arccosh(x)
+
+Returns the arc hyperbolic cosine of x.
+
+* arcsin(x)
+
+Returns the arc sine of x.
+
+#+BEGIN_SRC 
+arcsin(1/2)
+
+ 1   
+╶─╴ π
+ 6   
+#+END_SRC
+
+* arcsinh(x)
+
+Returns the arc hyperbolic sine of x.
+
+* arctan(y,x)
+
+Returns the arc tangent of y over x. If x is omitted then x = 1 is used.
+
+#+BEGIN_SRC 
+arctan(1,0)
+
+ 1   
+╶─╴ π
+ 2   
+#+END_SRC
+
+* arctanh(x)
+
+Returns the arc hyperbolic tangent of x.
+
+* arg(z)
+
+Returns the angle of complex z.
+
+#+BEGIN_SRC 
+arg(2 - 3i)
+arctan(-3,2)
+#+END_SRC
+
+* binding(s)
+
+The result of evaluating a symbol can differ from the symbol's binding. For example, the result may be expanded. The binding function returns the actual binding of a symbol.
+
+#+BEGIN_SRC 
+p = quote((x + 1)^2)
+p
+     2
+p = x  + 2 x + 1
+binding(p)
+       2
+(x + 1)
+#+END_SRC
+
+* ceiling(x)
+
+Returns the smallest integer greater than or equal to x.
+
+#+BEGIN_SRC 
+ceiling(1/2)
+1
+#+END_SRC
+
+* check(x)
+
+If x is true (nonzero) then continue in a script, else stop. Expression x can include the relational operators ==, ===, <, <=, >, >=. Use the not function to test for inequality.
+
+#+BEGIN_SRC 
+A = 1
+B = 1
+check(A=B) 
+-- script stops here if A not equal to B
+#+END_SRC
+
+* circexp(x)
+
+Returns expression x with circular and hyperbolic functions converted to exponentials.
+
+#+BEGIN_SRC 
+circexp(cos(x) + i sin(x))
+exp(i x)
+#+END_SRC
+
+* clear
+
+Clears all symbol definitions.
+
+* clock(z)
+
+Returns complex z in polar form with base of negative 1 instead of e.
+
+#+BEGIN_SRC 
+clock(2 - 3i)
+           arctan(−3,2) 
+          ╶────────────╴
+  1/2           π       
+13    (−1)  
+#+END_SRC
+            
+* cofactor(m,i,j)
+
+Returns the cofactor of matrix m for row i and column j.
+
+#+BEGIN_SRC 
+A = ((a,b),(c,d))
+cofactor(A,1,2) == adj(A)[2,1]
+1
+#+END_SRC
+
+* conj(z)
+
+Returns the complex conjugate of z.
+
+#+BEGIN_SRC 
+conj(2 - 3i)
+2 + 3 i
+#+END_SRC
+
+* contract(a,i,j)
+
+Returns tensor a summed over indices i and j. If i and j are omitted then 1 and 2 are used. The expression contract(m) computes the trace of matrix m.
+
+#+BEGIN_SRC 
+A = ((a,b),(c,d))
+contract(A)
+a + d
+#+END_SRC
+
+* cos(x)
+
+Returns the cosine of x.
+
+#+BEGIN_SRC 
+cos(pi/4)
+  1   
+╶────╴
+  1/2 
+ 2    
+#+END_SRC
+
+* cosh(x)
+
+Returns the hyperbolic cosine of x.
+
+#+BEGIN_SRC 
+circexp(cosh(x))
+
+ 1             1        
+╶─╴ exp(−x) + ╶─╴ exp(x)
+ 2             2        
+#+END_SRC
+
+* d(f,x)
+
+Returns the partial derivative of f with respect to x.
+
+#+BEGIN_SRC 
+d(x^2,x)
+2 x
+#+END_SRC
+
+Argument f can be a tensor of any rank. Argument x can be a vector. When x is a vector the result is the gradient of f.
+
+#+BEGIN_SRC 
+F = (f(),g(),h())
+X = (x,y,z)
+d(F,X)
+
+┌                                ┐
+│ d(f(),x)   d(f(),y)   d(f(),z) │
+│                                │
+│ d(g(),x)   d(g(),y)   d(g(),z) │
+│                                │
+│ d(h(),x)   d(h(),y)   d(h(),z) │
+└                                ┘
+#+END_SRC
+
+It is OK to use d as a variable name. It will not conflict with function d.
+
+It is OK to redefine d as a different function. The function derivative, a synonym for d, can still be used to obtain a partial derivative.
+
+* defint(f,x,a,b)
+
+Returns the definite integral of f with respect to x evaluated from a to b. The argument list can be extended for multiple integrals. For example, defint(f,x,a,b,y,c,d) is equivalent to defint(defint(f,x,a,b),y,c,d).
+
+#+BEGIN_SRC 
+f = (1 + cos(theta)^2) sin(theta)
+
+defint(f, theta, 0, pi, phi, 0, 2pi)
+
+ 16   
+╶──╴ π
+ 3    
+#+END_SRC
+
+* denominator(x)
+
+Returns the denominator of expression x.
+
+#+BEGIN_SRC 
+denominator(a/b)
+b
+#+END_SRC
+
+* det(m)
+
+Returns the determinant of matrix m.
+
+#+BEGIN_SRC 
+A = ((a,b),(c,d))
+det(A)
+a d - b c
+#+END_SRC
+
+* dim(a,n)
+
+Returns the dimension of the nth index of tensor a. Index numbering starts with 1.
+
+#+BEGIN_SRC 
+A = ((1,2),(3,4),(5,6))
+dim(A,1)
+3
+#+END_SRC
+
+* do(a,b,...)
+
+Evaluates each argument from left to right. Returns the result of the final argument.
+
+#+BEGIN_SRC 
+do(A=1,B=2,A+B)
+3
+#+END_SRC
+
+* dot(a,b,...)
+
+Returns the dot product of vectors, matrices, and tensors. Also known as the matrix product.
+
+#+BEGIN_SRC 
+-- solve for X in AX=B
+A = ((1,2),(3,4))
+B = (5,6)
+X = dot(inv(A),B)
+X
+    ┌     ┐
+    │ −4  │
+    │     │
+X = │  9  │
+    │ ╶─╴ │
+    │  2  │
+    └     ┘
+#+END_SRC
+
+* draw(f,x)
+
+Draws a graph of f(x). Drawing ranges can be set with xrange and yrange.
+
+#+BEGIN_SRC 
+xrange = (0,1)
+yrange = (0,1)
+draw(x^2,x)
+#+END_SRC
+
+* e
+
+Symbol e is initialized to the natural number e.
+
+#+BEGIN_SRC 
+e^x
+exp(x)
+#+END_SRC
+
+Note: It is OK to clear or redefine e and use the symbol for something else.
+
+* eval(f,x,a)
+
+Returns expression f evaluated at x equals a. The argument list can be extended for multivariate expressions. For example, eval(f,x,a,y,b) is equivalent to eval(eval(f,x,a),y,b).
+
+#+BEGIN_SRC 
+eval(x + y,x,a,y,b)
+a + b
+#+END_SRC
+
+* exp(x)
+Returns the exponential of x.
+
+#+BEGIN_SRC 
+exp(i pi)
+-1
+#+END_SRC
+
+* expcos(z)
+Returns the cosine of z in exponential form.
+
+#+BEGIN_SRC 
+expcos(z)
+
+ 1              1           
+╶─╴ exp(i z) + ╶─╴ exp(−i z)
+ 2              2           
+#+END_SRC
+
+* expcosh(z)
+Returns the hyperbolic cosine of z in exponential form.
+
+#+BEGIN_SRC 
+expcosh(z)
+
+ 1             1        
+╶─╴ exp(−z) + ╶─╴ exp(z)
+ 2             2        
+#+END_SRC
+
+* expsin(z)
+Returns the sine of z in exponential form.
+
+#+BEGIN_SRC 
+expsin(z)
+
+  1                1             
+−╶─╴ i exp(i z) + ╶─╴ i exp(−i z)
+  2                2             
+#+END_SRC
+
+* expsinh(z)
+Returns the hyperbolic sine of z in exponential form.
+
+#+BEGIN_SRC 
+expsinh(z)
+
+  1             1        
+−╶─╴ exp(−z) + ╶─╴ exp(z)
+  2             2        
+#+END_SRC
+
+* exptan(z)
+Returns the tangent of z in exponential form.
+
+#+BEGIN_SRC 
+exptan(z)
+
+       i             i exp(2 i z)  
+╶──────────────╴ − ╶──────────────╴
+ exp(2 i z) + 1     exp(2 i z) + 1 
+#+END_SRC
+
+* exptanh(z)
+Returns the hyperbolic tangent of z in exponential form.
+
+#+BEGIN_SRC 
+exptanh(z)
+
+       1             exp(2 z)   
+−╶────────────╴ + ╶────────────╴
+  exp(2 z) + 1     exp(2 z) + 1 
+#+END_SRC
+
+* factorial(n)
+Returns the factorial of n. The expression n! can also be used.
+
+#+BEGIN_SRC 
+20!
+2432902008176640000
+#+END_SRC
+
+* float(x)
+Returns expression x with rational numbers and integers converted to floating point values. The symbol pi and the natural number are also converted.
+
+#+BEGIN_SRC 
+float(212^17)
+          39
+3.52947 10
+#+END_SRC
+
+* floor(x)
+Returns the largest integer less than or equal to x.
+
+#+BEGIN_SRC 
+floor(1/2)
+0
+#+END_SRC
+
+* for(i,j,k,a,b,...)
+
+For i equals j through k evaluate a, b, etc.
+
+#+BEGIN_SRC 
+for(k,1,3,A=k,print(A))
+A = 1
+A = 2
+A = 3
+#+END_SRC
+
+Note: The original value of i is restored after for completes. If symbol i is used for index variable i then the imaginary unit is overridden in the scope of for.
+
+* hadamard(a,b,...)
+
+Returns the Hadamard (element-wise) product. The arguments are required to have the same dimensions. The Hadamard product is also accomplished by simply multiplying the arguments.
+
+#+BEGIN_SRC 
+A = ((A11,A12),(A21,A22))
+B = ((B11,B12),(B21,B22))
+A B
+
+┌                   ┐
+│ A   B     A   B   │
+│  11  11    12  12 │
+│                   │
+│ A   B     A   B   │
+│  21  21    22  22 │
+└                   ┘
+#+END_SRC
+
+* i
+Symbol i is initialized to the imaginary unit (−1)1/2.
+
+#+BEGIN_SRC 
+exp(i pi)
+-1
+#+END_SRC
+
+Note: It is OK to clear or redefine i and use the symbol for something else.
+
+* imag(z)
+Returns the imaginary part of complex z.
+
+#+BEGIN_SRC 
+imag(2 - 3i)
+-3
+#+END_SRC
+
+* inner(a,b,...)
+Returns the inner product of vectors, matrices, and tensors. Also known as the matrix product.
+
+#+BEGIN_SRC 
+A = ((a,b),(c,d))
+B = (x,y)
+inner(A,B)
+
+┌           ┐
+│ a x + b y │
+│           │
+│ c x + d y │
+└           ┘
+#+END_SRC
+
+Note: inner and dot are the same function.
+
+* integral(f,x)
+
+Returns the integral of f with respect to x.
+
+#+BEGIN_SRC 
+integral(x^2,x)
+
+ 1   3
+╶─╴ x 
+ 3    
+#+END_SRC
+
+* inv(m)
+Returns the inverse of matrix m.
+
+#+BEGIN_SRC 
+A = ((1,2),(3,4))
+inv(A)
+
+┌            ┐
+│ −2     1   │
+│            │
+│  3      1  │
+│ ╶─╴   −╶─╴ │
+│  2      2  │
+└            ┘
+#+END_SRC
+
+* j
+
+Set j=sqrt(-1) to use j for the imaginary unit instead of i.
+
+#+BEGIN_SRC 
+j = sqrt(-1)
+1/sqrt(-1)
+-j
+#+END_SRC
+
+* kronecker(a,b,...)
+
+Returns the Kronecker product of vectors and matrices.
+
+#+BEGIN_SRC 
+A = ((1,2),(3,4))
+B = ((a,b),(c,d))
+kronecker(A,B)
+┌                       ┐
+│  a     b    2 a   2 b │
+│                       │
+│  c     d    2 c   2 d │
+│                       │
+│ 3 a   3 b   4 a   4 b │
+│                       │
+│ 3 c   3 d   4 c   4 d │
+└                       ┘
+#+END_SRC
+
+* last
+
+The result of the previous calculation is stored in last.
+
+#+BEGIN_SRC 
+212^17
+3529471145760275132301897342055866171392
+last^(1/17)
+212
+#+END_SRC
+
+Note: Symbol last is an implied argument when a function has no argument list.
+
+#+BEGIN_SRC 
+212^17
+3529471145760275132301897342055866171392
+float
+          39
+3.52947 10
+#+END_SRC
+
+* log(x)
+
+Returns the natural logarithm of x.
+
+#+BEGIN_SRC 
+log(x^y)
+y log(x)
+#+END_SRC
+
+* mag(z)
+
+Returns the magnitude of complex z.
+
+#+BEGIN_SRC 
+mag(x + i y)
+
+┌       ┐1/2
+│ 2    2│   
+│x  + y │   
+│       │   
+└       ┘   
+#+END_SRC
+
+* minor(m,i,j)
+
+Returns the minor of matrix m for row i and column j.
+
+#+BEGIN_SRC 
+A = ((1,2,3),(4,5,6),(7,8,9))
+minor(A,1,1) == det(minormatrix(A,1,1))
+1
+#+END_SRC
+
+* minormatrix(m,i,j)
+
+Returns a copy of matrix m with row i and column j removed.
+
+#+BEGIN_SRC 
+A = ((1,2,3),(4,5,6),(7,8,9))
+minormatrix(A,1,1)
+
+┌       ┐
+│ 5   6 │
+│       │
+│ 8   9 │
+└       ┘
+#+END_SRC
+
+
+* mod(a,b)
+
+Returns the remainder of a over b.
+
+#+BEGIN_SRC 
+mod(5,3/8)
+ 1 
+╶─╴
+ 8 
+#+END_SRC
+
+* noexpand(x)
+
+Evaluates expression x without expanding products of sums.
+
+#+BEGIN_SRC 
+noexpand((x + 1)^2 / (x + 1))
+x + 1
+#+END_SRC
+
+* not(x)
+
+Returns 0 if x is true (nonzero). Returns 1 otherwise.
+
+#+BEGIN_SRC 
+not(1=1)
+0
+#+END_SRC
+
+* numerator(x)
+
+Returns the numerator of expression x.
+
+#+BEGIN_SRC 
+numerator(a/b)
+a
+#+END_SRC
+
+* or(a,b,...)
+
+Returns 1 if at least one argument is true (nonzero). Returns 0 otherwise.
+
+#+BEGIN_SRC 
+or(1=1,2=2)
+1
+#+END_SRC
+
+* outer(a,b,...)
+
+Returns the outer product of vectors, matrices, and tensors.
+
+#+BEGIN_SRC 
+A = (a,b,c)
+B = (x,y,z)
+outer(A,B)
+┌                 ┐
+│ a x   a y   a z │
+│                 │
+│ b x   b y   b z │
+│                 │
+│ c x   c y   c z │
+└                 ┘
+#+END_SRC
+
+* pi
+
+Symbol for π.
+
+#+BEGIN_SRC 
+exp(i pi)
+-1
+#+END_SRC
+
+* polar(z)
+
+Returns complex z in polar form.
+
+#+BEGIN_SRC 
+polar(x - i y)
+
+┌       ┐1/2                    
+│ 2    2│                       
+│x  + y │    exp(i arctan(−y,x))
+│       │                       
+└       ┘                       
+#+END_SRC
+
+* power
+
+Use ^ to raise something to a power. Use parentheses for negative powers.
+
+#+BEGIN_SRC 
+x^(-1/2)
+
+  1   
+╶────╴
+  1/2 
+ x    
+#+END_SRC
+
+* print(a,b,...)
+
+Evaluate expressions and print the results. Useful for printing from inside a for loop.
+
+#+BEGIN_SRC 
+for(j,1,3,print(j))
+j = 1
+j = 2
+j = 3
+#+END_SRC
+
+* product(i,j,k,f)
+
+For i equals j through k evaluate f. Returns the product of all f.
+
+#+BEGIN_SRC 
+product(j,1,3,x + j)
+
+ 3      2
+x  + 6 x  + 11 x + 6
+#+END_SRC
+
+The original value of i is restored after product completes. If symbol i is used for index variable i then the imaginary unit is overridden in the scope of product.
+
+* product(y)
+
+Returns the product of components of y.
+
+#+BEGIN_SRC 
+product((1,2,3,4))
+24
+#+END_SRC
+
+* quote(x)
+
+Returns expression x without evaluating it first.
+
+#+BEGIN_SRC 
+quote((x + 1)^2)
+       2
+(x + 1)
+#+END_SRC
+
+* rank(a)
+
+Returns the number of indices that tensor a has.
+
+#+BEGIN_SRC 
+A = ((a,b),(c,d))
+rank(A)
+2
+#+END_SRC
+
+* rationalize(x)
+
+Returns expression x with everything over a common denominator.
+
+#+BEGIN_SRC 
+rationalize(1/a + 1/b + 1/2)
+
+ 2 a + a b + 2 b 
+╶───────────────╴
+      2 a b      
+#+END_SRC
+
+Note: rationalize returns an unexpanded expression. If the result is assigned to a symbol, evaluating the symbol will expand the result. Use binding to retrieve the unexpanded expression.
+
+#+BEGIN_SRC 
+f = rationalize(1/a + 1/b + 1/2)
+binding(f)
+
+ 2 a + a b + 2 b 
+╶───────────────╴
+      2 a b      
+#+END_SRC
+
+* real(z)
+
+Returns the real part of complex z.
+
+#+BEGIN_SRC 
+real(2 - 3i)
+2
+#+END_SRC
+
+* rect(z)
+
+Returns complex z in rectangular form.
+
+#+BEGIN_SRC 
+rect(exp(i x))
+cos(x) + i sin(x)
+#+END_SRC
+
+* rotate(u,s,k,...)
+
+Rotates vector u and returns the result. Vector u is required to have 2n elements where n is an integer from 1 to 15. Arguments s,k,... are a sequence of rotation codes where s is an upper case letter and k is a qubit number 0 to n − 1. Rotations are evaluated from left to right. The available rotations are
+
+| C, k    | Control prefix                                |
+| H, k    | Hadamard                                      |
+| P, k, φ | Phase modifier (use φ = 1/4 π for T rotation) |
+| Q, k    | Quantum Fourier transform                     |
+| V, k    | Inverse quantum Fourier transform             |
+| W, k, j | Swap qubits                                   |
+| X, k    | Pauli X                                       |
+| Y, k    | Pauli Y                                       |
+| Z, k    | Pauli Z                                       |
+
+Control prefix C, k modifies the next rotation code so that it is a controlled rotation with k as the control qubit. Use two or more prefixes to specify multiple control qubits. For example, C, k, C, j, X, m is a Toffoli rotation. Fourier rotations Q, k and V, k are applied to qubits 0 through k. (Q and V ignore any control prefix.) See also section 3 of the Eigenmath manual.
+
+#+BEGIN_SRC 
+psi = (1,0,0,0)
+rotate(psi,H,0)
+
+┌        ┐
+│   1    │
+│ ╶────╴ │
+│   1/2  │
+│  2     │
+│        │
+│   1    │
+│ ╶────╴ │
+│   1/2  │
+│  2     │
+│        │
+│   0    │
+│        │
+│   0    │
+└        ┘
+#+END_SRC
+
+* simplify(x)
+
+Returns expression x in a simpler form.
+
+#+BEGIN_SRC 
+simplify(sin(x)^2 + cos(x)^2)
+1
+#+END_SRC
+
+* sin(x)
+
+Returns the sine of x.
+
+#+BEGIN_SRC 
+sin(pi/4)
+
+  1   
+╶────╴
+  1/2 
+ 2    
+#+END_SRC
+
+* sinh(x)
+
+Returns the hyperbolic sine of x.
+
+#+BEGIN_SRC 
+circexp(sinh(x))
+
+  1             1        
+−╶─╴ exp(−x) + ╶─╴ exp(x)
+  2             2        
+#+END_SRC
+
+* sqrt(x)
+
+Returns the square root of x.
+
+#+BEGIN_SRC 
+sqrt(10!)
+
+     1/2
+720 7
+#+END_SRC
+
+* stop
+
+In a script, it does what it says.
+
+* sum(i,j,k,f)
+
+For i equals j through k evaluate f. Returns the sum of all f.
+
+#+BEGIN_SRC 
+sum(j,1,5,x^j)
+
+ 5    4    3    2
+x  + x  + x  + x  + x
+#+END_SRC
+
+The original value of i is restored after sum completes. If symbol i is used for index variable i then the imaginary unit is overridden in the scope of sum.
+
+* sum(y)
+
+Returns the sum of components of y.
+
+#+BEGIN_SRC 
+sum((1,2,3,4))
+10
+#+END_SRC
+
+* tan(x)
+
+Returns the tangent of x.
+
+* tanh(x)
+
+Returns the hyperbolic tangent of x.
+
+#+BEGIN_SRC 
+circexp(tanh(x))
+
+       1             exp(2 x)   
+−╶────────────╴ + ╶────────────╴
+  exp(2 x) + 1     exp(2 x) + 1 
+#+END_SRC
+
+* test(a,b,c,d,...)
+
+If argument a is true (nonzero) then b is returned, else if c is true then d is returned, etc. If the number of arguments is odd then the final argument is returned if all else fails. Expressions can include the relational operators =, ==, <, <=, >, >=. Use the not function to test for inequality. (The equality operator == is available for contexts in which = is the assignment operator.)
+
+#+BEGIN_SRC 
+A = 1
+B = 1
+test(A=B,"yes","no")
+yes
+#+END_SRC
+
+* trace
+
+Set trace=1 in a script to print the script as it is evaluated. Useful for debugging.
+
+#+BEGIN_SRC 
+trace = 1
+#+END_SRC
+
+Note: The contract function is used to obtain the trace of a matrix.
+
+* transpose(a,i,j)
+
+Returns the transpose of tensor a with respect to indices i and j. If i and j are omitted then 1 and 2 are used. Hence a matrix can be transposed with a single argument.
+
+#+BEGIN_SRC 
+A = ((a,b),(c,d))
+transpose(A)
+
+┌       ┐
+│ a   c │
+│       │
+│ b   d │
+└       ┘
+#+END_SRC
+
+Note: The argument list can be extended for multiple transpose operations. The arguments are evaluated from left to right. For example, transpose(A,1,2,2,3) is equivalent to transpose(transpose(A,1,2),2,3).
+
+* unit(n)
+Returns an n by n identity matrix.
+
+#+BEGIN_SRC 
+unit(3)
+
+┌           ┐
+│ 1   0   0 │
+│           │
+│ 0   1   0 │
+│           │
+│ 0   0   1 │
+└           ┘
+#+END_SRC
+
+* zero(i,j,...)
+Returns a null tensor with dimensions i, j, etc. Useful for creating a tensor and then setting the component values.
+
+#+BEGIN_SRC 
+A = zero(3,3)
+for(k,1,3,A[k,k]=k)
+A
+    ┌           ┐
+    │ 1   0   0 │
+    │           │
+A = │ 0   2   0 │
+    │           │
+    │ 0   0   3 │
+    └           ┘
+#+END_SRC
