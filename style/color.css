@@ -19,7 +19,7 @@ body {
     background-color: var(--background);
 }
 
-#stdout,p {
+#stdout,p,pre,h2,li,table {
     color: var(--font);
     background-color: var(--background);
 }
