@@ -12,11 +12,11 @@ var command = {
     
     ["save"]: (argv) => {
         alert("save done")
-        window.localStorage.setItem(parts[1], $("buffer").value);
+        window.localStorage.setItem("session-"+argv[1], $("buffer").value);
     },
     
     ["load"]: (argv) => {
-        $("buffer").value = window.localStorage.getItem(parts[1]);
+        $("buffer").value = window.localStorage.getItem("session-"+argv[1]);
     },
     
     ["disable"]: (argv) => {

@@ -8,8 +8,8 @@ body {
 }
 
 #stdout {
-    padding: 8px;
-    padding-bottom: 300px;
+    /* padding: 8px; */
+    padding-bottom: 250px;
     user-select: none;
     overflow-x: auto;
     overflow-y: auto;
