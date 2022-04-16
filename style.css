@@ -1,9 +1,11 @@
 body {
     border: 0;
     margin: 0;
+    display: flex;
 }
 
-body::-webkit-scrollbar {
+/* https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+body::-webkit-scrollbar,  {
   display: none;
 }
 
@@ -14,11 +16,10 @@ button {
     font-size: 1em;
     user-select: none;
 }
+
 button:active {
     filter: brightness(85%);
 }
-
-
 
 #stdout {
     margin-bottom: 60vh;
@@ -43,6 +44,9 @@ button:active {
     max-width: 48px;
 }
 
+
+
+
 .input-panel {
     position: fixed;
     bottom: 0;
@@ -53,4 +57,9 @@ button:active {
     max-width: 100vw;
     overflow-x: auto;
     overflow-y: auto;
+}
+
+
+.emited_graph {
+    width: 100vw;
 }

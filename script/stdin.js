@@ -23,3 +23,6 @@ class stdin {
         stdin.textArea.value = window.localStorage.getItem("stdin");
     }
 }
+
+
+//function emit_graph()
