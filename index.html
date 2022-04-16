@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Eigenmath</title>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -15,16 +16,14 @@
 
     <!-- styles -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./style/media.css"/>
-    <link rel="stylesheet" href="./style/layouts.css"/>
+    <link rel="stylesheet" href="./style/media.css" />
+    <link rel="stylesheet" href="./style/layouts.css" />
 
     <!-- scripts -->
     <script defer src="./script/eigenmath.js"></script>
     <script defer src="./script/emit_graph.js"></script>
     <script defer src="./script/stdin.js"></script>
     <script defer src="./onload.js"></script>
-
-    <title>Document</title>
   </head>
   <body>
     <!-- stdout, buffer de salida -->
@@ -34,46 +33,39 @@
 
     <!-- Input panel -->
     <div class="VerticalArrangement input-panel">
+      <div class="HorizontalArrangement">
+        <a href="./resources/documents/manual.html"> Manual</a>
+      </div>
+
+      <!-- stdin, buffer de entrada -->
+
+      <textarea
+        id="stdin"
+        autocapitalize="none"
+        spellcheck="false"
+        placeholder="script..."
+        onchange="stdin.save()"
+      ></textarea>
 
       <div class="HorizontalArrangement">
-        
-        <a href="./resources/documents/manual.html"> Manual</a>
-        
-      </div>
-      
-      
-      <!-- stdin, buffer de entrada -->
-      
-        <textarea
-          id="stdin"
-          autocapitalize="none"
-          spellcheck="false"
-          placeholder="script..."
-          onchange="stdin.save()"
-        ></textarea>
-
-        <div class="HorizontalArrangement">
-          <div class="HorizontalArrangement button-panel">
-            <button onclick="stdin.insert('=')">=</button>
-            <button onclick="stdin.insert('+')">+</button>
-            <button onclick="stdin.insert('-')">-</button>
-            <button onclick="stdin.insert('*')">*</button>
-            <button onclick="stdin.insert('/')">/</button>
-            <button onclick="stdin.insert('^')">^</button>
-            <button onclick="stdin.insert('.')">.</button>
-            <button onclick="stdin.insert('(')">&#40;</button>
-            <button onclick="stdin.insert(')')">&#41;</button>
-            <button onclick="stdin.insert('[')">&#91;</button>
-            <button onclick="stdin.insert(']')">&#93;</button>
-            <button onclick="stdin.insert('<')">&#60;</button>
-            <button onclick="stdin.insert('>')">&#62;</button>
-          </div>
-
-          <button id="execute" onclick="run()">Run</button>
+        <div class="HorizontalArrangement button-panel">
+          <button onclick="stdin.insert('=')">=</button>
+          <button onclick="stdin.insert('+')">+</button>
+          <button onclick="stdin.insert('-')">-</button>
+          <button onclick="stdin.insert('*')">*</button>
+          <button onclick="stdin.insert('/')">/</button>
+          <button onclick="stdin.insert('^')">^</button>
+          <button onclick="stdin.insert('.')">.</button>
+          <button onclick="stdin.insert('(')">&#40;</button>
+          <button onclick="stdin.insert(')')">&#41;</button>
+          <button onclick="stdin.insert('[')">&#91;</button>
+          <button onclick="stdin.insert(']')">&#93;</button>
+          <button onclick="stdin.insert('<')">&#60;</button>
+          <button onclick="stdin.insert('>')">&#62;</button>
         </div>
+
+        <button id="execute" onclick="run()">Run</button>
       </div>
     </div>
   </body>
-
-  <script></script>
 </html>
