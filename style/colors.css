@@ -1,0 +1,63 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --font: #000;
+    --background: #fff;
+    --border: lightgray;
+    --graph: #000;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --font: #fff;
+    --background: #131313;
+    --border: #313131;
+    --graph: #fff;
+  }
+}
+
+* {
+  background-color: var(--background);
+  color: var(--font);
+}
+
+button {
+  border: 0;
+  background-color: var(--background);
+}
+
+button:active {
+  filter: brightness(85%);
+}
+
+.input-panel {
+  border-color: var(--border);
+}
+
+.output-panel {
+  border-color: var(--border);
+}
+
+#execute {
+  background-color: var(--border);
+  color: var(--font);
+}
+
+#stdin {
+  border-color: var(--border);
+}
+
+/* eigemath output */
+
+svg > text {
+  fill: var(--font) !important;
+}
+
+svg > line {
+  stroke: var(--font) !important;
+}
+
+svg > circle {
+  fill: var(--graph) !important;
+  stroke: var(--graph) !important;
+}
