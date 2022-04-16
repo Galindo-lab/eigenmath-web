@@ -1,0 +1,56 @@
+body {
+    border: 0;
+    margin: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+    width: 96px;
+    height: 48px;
+    outline: none;
+    font-size: 1em;
+    user-select: none;
+}
+button:active {
+    filter: brightness(85%);
+}
+
+
+
+#stdout {
+    margin-bottom: 60vh;
+}
+
+#stdin {
+    resize: none;
+    height: 200px;
+    font-size: 1.2em;
+}
+
+
+
+.button-panel {
+     overflow: auto;
+     white-space: nowrap;
+     width: 100%;
+}
+
+.button-panel > button {
+    min-width: 48px;
+    max-width: 48px;
+}
+
+.input-panel {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.output-panel {
+    max-width: 100vw;
+    overflow-x: auto;
+    overflow-y: auto;
+}

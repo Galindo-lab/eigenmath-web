@@ -1,0 +1,9 @@
+.HorizontalArrangement {
+    display: flex;
+    flex-direction: row;
+}
+
+.VerticalArrangement {
+    display: flex;
+    flex-direction: column;
+}

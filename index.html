@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="resources/images/sigma.svg"
+      sizes="16x16"
+    />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style/layouts.css" rel="stylesheet"/>
+
+    <!-- scripts -->
+    <script defer src="./script/eigenmath.js"></script>
+    <script defer src="./script/stdin.js"></script>
+    <script defer src="./onload.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- stdout, buffer de salida -->
+    <div class="VerticalArrangement output-panel">
+      <div id="stdout"></div>
+    </div>
+
+    <!-- Input panel -->
+    <div class="VerticalArrangement input-panel">
+
+      <div class="HorizontalArrangement">
+        
+        <a href="url"> Manual</a>
+        
+      </div>
+      
+      
+      <!-- stdin, buffer de entrada -->
+      
+        <textarea
+          id="stdin"
+          autocapitalize="none"
+          spellcheck="false"
+          placeholder="script..."
+          onchange="stdin.save()"
+        ></textarea>
+
+        <div class="HorizontalArrangement">
+          <div class="HorizontalArrangement button-panel">
+            <button onclick="stdin.insert('=')">=</button>
+            <button onclick="stdin.insert('+')">+</button>
+            <button onclick="stdin.insert('-')">-</button>
+            <button onclick="stdin.insert('*')">*</button>
+            <button onclick="stdin.insert('/')">/</button>
+            <button onclick="stdin.insert('^')">^</button>
+            <button onclick="stdin.insert('.')">.</button>
+            <button onclick="stdin.insert('(')">&#40;</button>
+            <button onclick="stdin.insert(')')">&#41;</button>
+            <button onclick="stdin.insert('[')">&#91;</button>
+            <button onclick="stdin.insert(']')">&#93;</button>
+          </div>
+
+          <button id="execute" onclick="run()">Run</button>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script></script>
+</html>
