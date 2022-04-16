@@ -1,3 +1,7 @@
+* {
+     font-size: 1em;
+}
+
 body {
   border: 0;
   margin: 0;
@@ -9,20 +13,14 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-button {
-  width: 96px;
-  height: 48px;
-  outline: none;
-  font-size: 1em;
-  user-select: none;
-}
 
-button:active {
-  filter: brightness(85%);
-}
 
-#stdout {
-  margin-bottom: 60vh;
+/* --- Entradas --- */
+
+.input-panel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 #stdin {
@@ -37,21 +35,33 @@ button:active {
   width: 100%;
 }
 
-.button-panel > button {
+button {
   min-width: 48px;
-  max-width: 48px;
+  height: 48px;
+  outline: none;
+  user-select: none;
 }
 
-.input-panel {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+button:active {
+  filter: brightness(85%);
 }
+
+#execute {
+    width: 96px;
+}
+
+
+/* --- Salidas --- */
+
 
 .output-panel {
   max-width: 100vw;
   overflow-x: auto;
   overflow-y: auto;
+}
+
+#stdout {
+  margin-bottom: 60vh;
 }
 
 .emited_graph {

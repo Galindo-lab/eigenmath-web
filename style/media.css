@@ -1,5 +1,5 @@
 @media (min-width:1024px)  {
-
+    
     body {
         flex-direction: row-reverse;
         height: 100vh;
