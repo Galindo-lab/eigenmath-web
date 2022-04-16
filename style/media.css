@@ -1,26 +1,25 @@
-@media (min-width:1024px)  {
-    
-    body {
-        flex-direction: row-reverse;
-        height: 100vh;
-    }
+@media (min-width: 1024px) {
+  body {
+    flex-direction: row-reverse;
+    height: 100vh;
+  }
 
-    .output-panel {
-        width: 50%;
-    }
-    
-    .input-panel {
-        width: 50%;
-        position: inherit;
-        flex-direction: column-reverse;
-    }
+  .output-panel {
+    width: 50%;
+    border-left: 1px solid;
+  }
 
-    #stdin {
-        height: 100%;
-    }
+  .input-panel {
+    width: 50%;
+    position: inherit;
+    flex-direction: column-reverse;
+  }
 
-    .emited_graph {
-        width: 100%;
-    }
-    
+  #stdin {
+    height: 100%;
+  }
+
+  .emited_graph {
+    width: 100%;
+  }
 }

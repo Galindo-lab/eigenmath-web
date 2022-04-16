@@ -1,5 +1,5 @@
 * {
-     font-size: 1em;
+  font-size: 1em;
 }
 
 body {
@@ -13,20 +13,24 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-
-
 /* --- Entradas --- */
 
 .input-panel {
+  border-top: 1px solid;
   position: fixed;
   bottom: 0;
   width: 100%;
 }
 
 #stdin {
+  outline: none;
+  border: 0;
+  padding: 8px;
   resize: none;
   height: 200px;
   font-size: 1.2em;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .button-panel {
@@ -42,17 +46,11 @@ button {
   user-select: none;
 }
 
-button:active {
-  filter: brightness(85%);
-}
-
 #execute {
-    width: 96px;
+  width: 96px;
 }
-
 
 /* --- Salidas --- */
-
 
 .output-panel {
   max-width: 100vw;
