@@ -1,3 +1,7 @@
+
+/* En este archivo esta todo lo relacionado con los colores de la interfaz */
+
+
 @media (prefers-color-scheme: light) {
   :root {
     --font: #000;
@@ -46,8 +50,6 @@ button:active {
 #stdin {
   border-color: var(--border);
 }
-
-/* eigemath output */
 
 svg > text {
   fill: var(--font) !important;

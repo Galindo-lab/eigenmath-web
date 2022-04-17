@@ -1,3 +1,6 @@
+
+/* distribuciones comunes en la interfaz */
+
 .HorizontalArrangement {
   display: flex;
   flex-direction: row;
