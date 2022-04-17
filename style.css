@@ -39,6 +39,10 @@ body::-webkit-scrollbar {
   width: 100%;
 }
 
+a {
+  padding: 8px;
+}
+
 button {
   min-width: 48px;
   height: 48px;
@@ -65,3 +69,4 @@ button {
 .emited_graph {
   width: 100vw;
 }
+
