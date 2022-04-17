@@ -13,7 +13,8 @@ class stdin {
     document.execCommand("insertText", false, textToInsert);
   }
 
-  // guarda el contenido del buffer en el localstorage, para que no se borre al salir de la aplicacion
+  // guarda el contenido del buffer en el localstorage, para que no se borre
+  //al salir de la aplicacion
   static save() {
     window.localStorage.setItem("stdin", stdin.textArea.value);
   }
