@@ -35,17 +35,16 @@
 
     <!-- Input panel -->
     <div class="VerticalArrangement input-panel">
-      <div class="HorizontalArrangement">
-        <!-- <a href="./resources/documents/manual.html"> Save</a> -->
-        <!-- <a href="./resources/documents/manual.html"> Load</a> -->
-        <a><label for="load-file">Load</label></a>
+      <div class="HorizontalArrangement tool-bar">
+        <label onclick="file.save()">Save</label>
+        <label for="load-file">Load</label>
         <input
           id="load-file"
           name="load-file"
           type="file"
           onchange="file.load(this)"
         />
-        <a onclick="stdin.clear()"> Clear</a>
+        <label onclick="stdin.clear()"> Clear</label>
         <a href="./resources/documents/manual.html"> Manual</a>
       </div>
 
