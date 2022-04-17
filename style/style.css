@@ -24,8 +24,8 @@ button {
   user-select: none;
 }
 
-.tool-bar {
-    background-color: red;
+.tool-bar > a:last-child {
+    margin-left: auto;
 }
 
 .tool-bar > * {
