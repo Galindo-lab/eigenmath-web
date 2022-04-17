@@ -51,7 +51,8 @@ button {
 }
 
 #execute {
-  width: 96px;
+    width: 96px;
+    border-left: 1px solid;
 }
 
 /* --- Salidas --- */

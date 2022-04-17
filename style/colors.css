@@ -39,7 +39,7 @@ button:active {
 }
 
 #execute {
-  background-color: var(--border);
+  border-color: var(--border);
   color: var(--font);
 }
 
