@@ -23,4 +23,10 @@ class stdin {
   static reload() {
     stdin.textArea.value = window.localStorage.getItem("stdin");
   }
+
+
+    static clear() {
+        stdin.textArea.value = ""
+        stdin.save()
+    }
 }

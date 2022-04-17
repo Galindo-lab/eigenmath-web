@@ -18,12 +18,13 @@
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/media.css" />
     <link rel="stylesheet" href="./style/layouts.css" />
-    <link href="./style/colors.css" rel="stylesheet"/>
-    
+    <link href="./style/colors.css" rel="stylesheet" />
+
     <!-- scripts -->
     <script defer src="./script/eigenmath.js"></script>
     <script defer src="./script/emit_graph.js"></script>
     <script defer src="./script/stdin.js"></script>
+    <script defer src="./script/file.js"></script>
     <script defer src="./script/onload.js"></script>
   </head>
   <body>
@@ -37,7 +38,14 @@
       <div class="HorizontalArrangement">
         <!-- <a href="./resources/documents/manual.html"> Save</a> -->
         <!-- <a href="./resources/documents/manual.html"> Load</a> -->
-        <!-- <a href="./resources/documents/manual.html"> Clear</a> -->
+        <a><label for="load-file">Load</label></a>
+        <input
+          id="load-file"
+          name="load-file"
+          type="file"
+          onchange="file.load(this)"
+        />
+        <a onclick="stdin.clear()"> Clear</a>
         <a href="./resources/documents/manual.html"> Manual</a>
       </div>
 
@@ -60,6 +68,7 @@
           <button onclick="stdin.insert('/')">/</button>
           <button onclick="stdin.insert('^')">^</button>
           <button onclick="stdin.insert('.')">.</button>
+          <button onclick="stdin.insert(',')">,</button>
           <button onclick="stdin.insert('(')">&#40;</button>
           <button onclick="stdin.insert(')')">&#41;</button>
           <button onclick="stdin.insert('[')">&#91;</button>

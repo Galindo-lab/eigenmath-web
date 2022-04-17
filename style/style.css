@@ -18,10 +18,12 @@ body::-webkit-scrollbar {
 /* --- Entradas --- */
 
 a {
-  padding: 8px;
+    padding: 8px;
+    cursor: pointer;
 }
 
 button {
+        cursor: pointer;
   min-width: 48px;
   height: 48px;
   outline: none;
