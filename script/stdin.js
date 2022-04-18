@@ -24,9 +24,10 @@ class stdin {
     stdin.textArea.value = window.localStorage.getItem("stdin");
   }
 
+  // vacia el buffer
+  static clear() {
+    stdin.textArea.value = "";
+    stdin.save();
+  }
 
-    static clear() {
-        stdin.textArea.value = ""
-        stdin.save()
-    }
 }
