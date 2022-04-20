@@ -19,8 +19,10 @@ class file {
   }
 
   static save() {
-    let file_name = prompt("Please enter your name", "unamed.txt");
-    file.saveFile(file_name, file.textArea.value);
+      let file_name = prompt("Please enter your name", "unamed.txt");
+      if (file_name != '') {
+          file.saveFile(file_name, file.textArea.value);
+      }
   }
 
   static saveFile(fileName, content) {
