@@ -1,0 +1,86 @@
+
+# Encontraras más información en la sección de Manual
+# Eigenmath es un software CAS (Computer algebra system), permite
+# evaluar y desarrollar expresiones algebraicas como:
+
+(x+1)^2
+
+# puede hacer otro tipo de expresiones
+
+(a + b + c ) * (d + e + f)
+
+# podemos utilizar el resultado de nuestras última expresión con la
+# palabra 'last' o guardar el resultado en una variable
+
+q = last / d
+q
+
+# también podemos sustituir el valor de un variable con un valor 
+# numerico
+
+eval(last, a, 8, b, 10, c, 11, d, 12, e, 13)
+
+float # lo podemos obtener en decimal
+
+# factorial de 30!
+
+10! # te reto a probar calcular el factorial de 100
+
+# vectores
+v = (1,2,3)
+v
+abs(v)
+float
+
+# podemos utilizar matrices
+
+m = ( (1,2,3), (4,5,6), (7,8,9) )
+m
+transpose(m) * m
+
+# abecedario griego
+
+"Abecedario"
+(((Alpha, alpha)   , (Beta, beta))
+((Gamma,gamma)     , (Delta,delta))
+((Epsilon,epsilon) , (Zeta, zeta))
+((Eta, eta)        , (Theta, theta))
+((Iota, iota)      , (Kappa, kappa))
+((Lambda, lambda)  , (Mu, mu))
+((Nu, nu)          , (Xi, xi))
+((Omicron, omicron), (Pi, pi))
+((Rho, rho)        , (Sigma, sigma))
+((Tau, tau)        , (Upsilon, upsilon))
+((Phi, phi)        , (Chi, chi))
+((Psi, psi)        , (Omega, omega)))
+
+pi + 1 # pi se puede usar como símbolo, pero se pasara a flotante 
+float
+
+# cálculo básico
+
+integral(x+y+1,x) # integral indefinida
+d(x+y^2+z*y+1, y) # derivada
+
+# integral definida
+
+# Demostracion de pi con caculo
+4 * defint( sqrt(1-x^2), x, 0, 1 )
+
+# pi con Serie de Leibniz
+4 * sum(n,0,50,((-1)^n)/(2*n+1))
+float
+
+# graficas
+draw(1/x)
+
+xrange = (-10,10)
+yrange = (-10,10)
+f = 5 (cos(theta),sin(theta))
+f
+draw(f,theta)
+
+trange = (0,pi/2)
+f = 5 (cos(theta),sin(theta))
+f
+draw(f,theta)

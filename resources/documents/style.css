@@ -1,4 +1,27 @@
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --font: #000;
+    --background: #fff;
+    --border: lightgray;
+    --graph: #000;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --font: #fff;
+    --background: #131313;
+    --border: #313131;
+    --graph: #fff;
+  }
+}
+
+* {
+  background-color: var(--background);
+  color: var(--font);
+}
+
 body{
     max-width: 600px;
     margin: auto;

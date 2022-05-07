@@ -1,0 +1,12 @@
+
+/* distribuciones comunes en la interfaz */
+
+.HorizontalArrangement {
+  display: flex;
+  flex-direction: row;
+}
+
+.VerticalArrangement {
+  display: flex;
+  flex-direction: column;
+}

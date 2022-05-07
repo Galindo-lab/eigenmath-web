@@ -1,0 +1,89 @@
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family:courier;
+    font-size: 1em;
+}
+
+#stdout {
+    /* padding: 8px; */
+    padding-bottom: 250px;
+    user-select: none;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.outline {
+    display: flex;          
+    width: 100%;
+}
+
+#input {
+    width: 100%;
+}
+
+button {
+    font-family:courier;
+    width: 96px;
+    height: 48px;
+    border: 1px solid gray;
+    outline: none;
+    font-size: 1em;
+    user-select: none;
+}
+
+button:active {
+    filter: brightness(85%);
+}
+
+input {
+    border: 0;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 8px;
+    font-family:courier;
+    outline: none;
+    font-size: 1em;
+}
+
+#buffer {
+    font-size: 1.2em;
+    font-family:courier;
+    max-height: 100%;
+    width: calc(100%-16px);
+    resize: none;
+    border: 0;
+    margin: 0;
+    padding: 8px;
+    outline: none;
+
+}
+
+#buffer:focus {
+    height: 300px;
+}
+
+presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    margin: 1em;
+}
+
+.emited_graph {
+    width: 100vw;
+}

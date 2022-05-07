@@ -1,89 +1,98 @@
+/* Estilos del programa, pensado con telefonos primero */
+
+* {
+  font-size: 16px;
+}
 
 body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family:courier;
-    font-size: 1em;
+  border: 0;
+  margin: 0;
+  display: flex;
+}
+
+/* https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+
+/* --- Entradas --- */
+button {
+  cursor: pointer;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  padding: 0;
+}
+
+.tool-bar > * {
+  font-family: Arial;
+    padding: 8px;
+    cursor: pointer;
+      user-select:none;
+}
+
+.tool-bar > *:last-child {
+    margin-left: auto;
+}
+
+.tool-bar > *:hover {
+    filter: brightness(85%)
+}
+
+.tool-bar > input {
+    display: none;
+}
+
+.input-panel {
+  border-top: 1px solid;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.button-panel {
+  overflow: auto;
+  white-space: nowrap;
+  width: 100%;
+}
+
+#stdin {
+  outline: none;
+  border: 0;
+  padding: 8px;
+  resize: none;
+  height: 200px;
+  font-size: 1em;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  height: 50px;
+}
+
+#stdin:focus {
+    height: 50vh;
+}
+
+#execute {
+    width: 96px;
+    border-left: 1px solid;
+}
+
+#execute:hover {
+    filter: brightness(85%)
+}
+
+/* --- Salidas --- */
+
+.output-panel {
+  max-width: 100vw;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding: 8px;
 }
 
 #stdout {
-    /* padding: 8px; */
-    padding-bottom: 250px;
-    user-select: none;
-    overflow-x: auto;
-    overflow-y: auto;
-}
-
-.bottom {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    overflow: hidden;
-}
-
-.outline {
-    display: flex;          
-    width: 100%;
-}
-
-#input {
-    width: 100%;
-}
-
-button {
-    font-family:courier;
-    width: 96px;
-    height: 48px;
-    border: 1px solid gray;
-    outline: none;
-    font-size: 1em;
-    user-select: none;
-}
-
-button:active {
-    filter: brightness(85%);
-}
-
-input {
-    border: 0;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
-    padding: 8px;
-    font-family:courier;
-    outline: none;
-    font-size: 1em;
-}
-
-#buffer {
-    font-size: 1.2em;
-    font-family:courier;
-    max-height: 100%;
-    width: calc(100%-16px);
-    resize: none;
-    border: 0;
-    margin: 0;
-    padding: 8px;
-    outline: none;
-
-}
-
-#buffer:focus {
-    height: 300px;
-}
-
-presentation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-img {
-    margin: 1em;
+  user-select:none;
+  margin-bottom: 60vh;
 }
 
 .emited_graph {
-    width: 100vw;
+  width: 100vw;
 }
+

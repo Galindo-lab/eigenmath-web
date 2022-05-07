@@ -1,41 +1,32 @@
-@media (min-width:1024px)  {
+/* media queries para computadoras */
 
-    body {
-        flex-direction: row-reverse;
-        height: 100vh;
-    }
+@media (min-width: 1024px) {
+  body {
+    flex-direction: row-reverse;
+    height: 100vh;
+  }
 
-    .bottom {
-        width: 50%;
-        position: inherit;
-        flex-direction: column-reverse;
-    }
+  .output-panel {
+    width: 50%;
+    border-left: 1px solid;
+  }
 
-    .stdin-outline {
-        width: 100%;
-        overflow-y: hidden;
-    }
-    
-    #stdout {
-        padding-bottom: 0;
-        overflow-x: auto;
-        height: calc(100vh - 8px);
-    }
+  .input-panel {
+    width: 50%;
+    position: inherit;
+    flex-direction: column-reverse;
+    border-top: 0px;
+  }
 
-    #buffer {
-        height: 100%;
-        border-left: 1px solid grey ;
-        border-right: 1px solid grey ;
-    }
-    
-    #buffer:focus {
-        height: 100%;
-    }
+  #stdin {
+    height: 100%;
+  }
 
-    .emited_graph {
-        width: 100%;
-    }
+  #stdin:focus {
+    height: 100%;
+  }
 
-    
-
+  .emited_graph {
+    width: 100%;
+  }
 }

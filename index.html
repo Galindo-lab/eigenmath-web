@@ -1,167 +1,85 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Eigenmath web</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="icon" type="image/png" href="resources/images/sigma.svg" sizes="16x16">
+    <title>Eigenmath</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./resources/images/status.png"
+      sizes="16x16"
+    />
 
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/media.css">
-    <link rel="stylesheet" href="style/color.css">
+    <!-- styles -->
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/media.css" />
+    <link rel="stylesheet" href="./style/layouts.css" />
+    <link href="./style/colors.css" rel="stylesheet" />
 
-    <script defer src="./script/eigenmath.js"></script>
+    <!-- scripts -->
+    <script defer src="./eigenmath/eigenmath.js"></script>
+    <script defer src="./eigenmath/emit_graph.js"></script>
 
-    <script defer src="./script/functions.js"></script>
+    <script defer src="./script/stdin.js"></script>
+    <script defer src="./script/file.js"></script>
+    
     <script defer src="./script/onload.js"></script>
-    
-    <script defer src="./script/commands.js"></script>
-    <script defer src="./script/script.js"></script>
-    <script defer src="./script/ui.js"></script>
-    
   </head>
-
   <body>
-    <textarea id="stdin" style="display:none;"></textarea>
-  
-    <!-- stdout -->
-    <div class="stdin-outline">
-      <div id="stdout">
-
-        <presentation>
-          <br>
-          <br>
-          <!-- <img width="100px" src="./resources/images/status.png"> -->
-            <img src="resources/images/sigma.svg" height="100" width="100" />
-          
-          <b>Eigenmath 1.5</b><br>
-          
-          <i>"Now I will have less<br>distraction."</i><br>
-          - Leonard Euler
-
-          <br><br>
-          <a href="./resources/documents/manual.html">Manual</a>
-          <a href="https://georgeweigt.github.io/help.html">Help</a>
-          <br>
-          
-        </presentation>
-
-      </div>
-
+    <!-- stdout, buffer de salida -->
+    <div class="VerticalArrangement output-panel">
+      <div id="stdout"></div>
     </div>
 
-
-    
-    <div class="bottom">
-
-      <div class="outline">
-
-        <datalist id="functions">
-          <option value="abs">
-          <option value="adj">
-          <option value="and">
-          <option value="arccos">
-          <option value="arccosh">
-          <option value="arcsin">
-          <option value="arcsinh">
-          <option value="arctan">
-          <option value="arctanh">
-          <option value="arg">
-          <option value="binding">
-          <option value="ceiling">
-          <option value="check">
-          <option value="circexp">
-          <option value="clear">
-          <option value="clock">
-          <option value="cofactor">
-          <option value="conj">
-          <option value="contract">
-          <option value="cos">
-          <option value="cosh">
-          <option value="d">
-          <option value="defint">
-          <option value="denominator">
-          <option value="det">
-          <option value="dim">
-          <option value="do">
-          <option value="dot">
-          <option value="draw">
-          <option value="eval">
-          <option value="exp">
-          <option value="expcos">
-          <option value="expcosh">
-          <option value="expsin">
-          <option value="expsinh">
-          <option value="exptan">
-          <option value="exptanh">
-          <option value="factorial">
-          <option value="float">
-          <option value="floor">
-          <option value="for">
-          <option value="hadamard">
-          <option value="i">
-          <option value="imag">
-          <option value="inner">
-          <option value="integral">
-          <option value="inv">
-          <option value="j">
-          <option value="kronecker">
-          <option value="last">
-          <option value="log">
-          <option value="mag">
-          <option value="minor">
-          <option value="minormatrix">
-          <option value="mod">
-          <option value="noexpand">
-          <option value="not">
-          <option value="numerator">
-          <option value="or">
-          <option value="outer">
-          <option value="pi">
-          <option value="polar">
-          <option value="power">
-          <option value="print">
-          <option value="product">
-          <option value="quote">
-          <option value="rank">
-          <option value="rationalize">
-          <option value="real">
-          <option value="rect">
-          <option value="rotate">
-          <option value="run">
-          <option value="simplify">
-          <option value="sin">
-          <option value="sinh">
-          <option value="sqrt">
-          <option value="stop">
-          <option value="sum">
-          <option value="tan">
-          <option value="tanh">
-          <option value="test">
-          <option value="trace">
-          <option value="transpose">
-          <option value="unit">
-          <option value="zero">
-        </datalist>
-        
-        <input type="text" list="functions" id="input" autocapitalize="none" minlength="2" >
-        <button id="execute">Run</button>
+    <!-- Input panel -->
+    <div class="VerticalArrangement input-panel">
+      <div class="HorizontalArrangement tool-bar">        
+        <label onclick="file.save()">Save</label>
+        <label for="load-file">Load</label>
+        <input
+          id="load-file"
+          name="load-file"
+          type="file"
+          onchange="file.load(this)"
+          />
+        <label onclick="stdin.clear()"> Clear</label>
+        <a href="./resources/documents/manual.html"> Manual</a>
       </div>
 
+      <!-- stdin, buffer de entrada -->
 
-      
-      
-      <textarea id="buffer" autocapitalize="none" spellcheck="false" placeholder="script...">
-      </textarea>
-      
+      <textarea
+        id="stdin"
+        autocapitalize="none"
+        spellcheck="false"
+        placeholder="script..."
+        onchange="stdin.save()"
+      ></textarea>
 
+      <div class="HorizontalArrangement">
+        <div class="HorizontalArrangement button-panel">
+          <button onclick="stdin.insert('=')">=</button>
+          <button onclick="stdin.insert('+')">+</button>
+          <button onclick="stdin.insert('-')">-</button>
+          <button onclick="stdin.insert('*')">*</button>
+          <button onclick="stdin.insert('/')">/</button>
+          <button onclick="stdin.insert('^')">^</button>
+          <button onclick="stdin.insert('.')">.</button>
+          <button onclick="stdin.insert(',')">,</button>
+          <button onclick="stdin.insert('(')">&#40;</button>
+          <button onclick="stdin.insert(')')">&#41;</button>
+          <button onclick="stdin.insert('[')">&#91;</button>
+          <button onclick="stdin.insert(']')">&#93;</button>
+          <button onclick="stdin.insert('<')">&#60;</button>
+          <button onclick="stdin.insert('>')">&#62;</button>
+        </div>
+
+        <button id="execute" onclick="run()">Run</button>
+      </div>
     </div>
-
-
-    
   </body>
-
-  
-  
 </html>
