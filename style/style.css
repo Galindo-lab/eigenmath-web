@@ -15,20 +15,21 @@ body {
 /* --- Entradas --- */
 button {
   cursor: pointer;
+  width: 48px;
   min-width: 48px;
   height: 48px;
-  outline: none;
-  user-select: none;
-}
-
-.tool-bar > a:last-child {
-    margin-left: auto;
+  padding: 0;
 }
 
 .tool-bar > * {
   font-family: Arial;
     padding: 8px;
     cursor: pointer;
+      user-select:none;
+}
+
+.tool-bar > *:last-child {
+    margin-left: auto;
 }
 
 .tool-bar > *:hover {
@@ -87,6 +88,7 @@ button {
 }
 
 #stdout {
+  user-select:none;
   margin-bottom: 60vh;
 }
 

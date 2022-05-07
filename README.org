@@ -1,4 +1,0 @@
-#+title: Eigenmath web 
-#+author: Galindo
-
-simplificando codigo
