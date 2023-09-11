@@ -12,12 +12,22 @@
 
     <!-- String -->
     <script defer src="./eigenmath/eigenmath.js"></script>
+    <script defer src="./eigenmath/emit_graph.js"></script>
+
+    <script defer src="./script/stdin.js"></script>
+    <script defer src="./script/file.js"></script>
+
+    <script defer src="./script/onload.js"></script>
 
     <style>
         textarea {
             white-space: nowrap;
             overflow: auto;
             overflow: -moz-scrollbars-horizontal;
+        }
+
+        .emited_graph {
+            width: 45vw;
         }
     </style>
 
@@ -81,25 +91,25 @@ yrange = (-1,1)
 draw(f,x)     
                     </textarea>
 
-                    <div class="pt-2 d-flex " style="user-select: none;">
-                            <div class="column overflow-auto flex-grow-1">
+                    <div class="pt-2 d-flex w-100 " style="user-select: none;">
+                        <div class="overflow-auto w-100 nowrap">
 
-                                    <button class="btn btn-light" onclick="stdin.insert('=')">=</button>
-                                <button class="btn btn-light" onclick="stdin.insert('+')">+</button>
-                                <button class="btn btn-light" onclick="stdin.insert('-')">-</button>
-                                <button class="btn btn-light" onclick="stdin.insert('*')">*</button>
-                                <button class="btn btn-light" onclick="stdin.insert('/')">/</button>
-                                <button class="btn btn-light" onclick="stdin.insert('^')">^</button>
-                                <button class="btn btn-light" onclick="stdin.insert('.')">.</button>
-                                <button class="btn btn-light" onclick="stdin.insert(',')">,</button>
-                                <button class="btn btn-light" onclick="stdin.insert('(')">&#40;</button>
-                                <button class="btn btn-light" onclick="stdin.insert(')')">&#41;</button>
-                                <button class="btn btn-light" onclick="stdin.insert('[')">&#91;</button>
-                                <button class="btn btn-light" onclick="stdin.insert(']')">&#93;</button>
-                                <button class="btn btn-light" onclick="stdin.insert('<')">&#60;</button>
-                                <button class="btn btn-light" onclick="stdin.insert('>')">&#62;</button>
-                               
-                            </div>
+                            <button class="btn btn-light" onclick="stdin.insert('=')">=</button>
+                            <button class="btn btn-light" onclick="stdin.insert('+')">+</button>
+                            <button class="btn btn-light" onclick="stdin.insert('-')">-</button>
+                            <button class="btn btn-light" onclick="stdin.insert('*')">*</button>
+                            <button class="btn btn-light" onclick="stdin.insert('/')">/</button>
+                            <button class="btn btn-light" onclick="stdin.insert('^')">^</button>
+                            <button class="btn btn-light" onclick="stdin.insert('.')">.</button>
+                            <button class="btn btn-light" onclick="stdin.insert(',')">,</button>
+                            <button class="btn btn-light" onclick="stdin.insert('(')">&#40;</button>
+                            <button class="btn btn-light" onclick="stdin.insert(')')">&#41;</button>
+                            <button class="btn btn-light" onclick="stdin.insert('[')">&#91;</button>
+                            <button class="btn btn-light" onclick="stdin.insert(']')">&#93;</button>
+                            <button class="btn btn-light" onclick="stdin.insert('<')">&#60;</button>
+                            <button class="btn btn-light" onclick="stdin.insert('>')">&#62;</button>
+
+                        </div>
 
                         <button class="btn btn-primary" onclick="run()">Run&nbsp;►</button>
                     </div>
