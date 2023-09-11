@@ -1,86 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Eigenmath</title>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,maximum-scale=1"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="./resources/images/status.png"
-      sizes="16x16"
-    />
 
-    <!-- styles -->
-    <link rel="stylesheet" href="./style/style.css" />
-    <link rel="stylesheet" href="./style/media.css" />
-    <link rel="stylesheet" href="./style/layouts.css" />
-    <link href="./style/colors.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    <!-- scripts -->
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- String -->
     <script defer src="./eigenmath/eigenmath.js"></script>
     <script defer src="./eigenmath/emit_graph.js"></script>
 
     <script defer src="./script/stdin.js"></script>
     <script defer src="./script/file.js"></script>
-    
+
     <script defer src="./script/onload.js"></script>
-  </head>
-  <body>
-    <!-- stdout, buffer de salida -->
-    <div class="VerticalArrangement output-panel">
-      <div id="stdout"></div>
-    </div>
 
-    <!-- Input panel -->
-    <div class="VerticalArrangement input-panel">
-      <div class="HorizontalArrangement tool-bar">        
-        <label onclick="file.save()">Save</label>
-        <label for="load-file">Load</label>
-        <input
-          id="load-file"
-          name="load-file"
-          type="file"
-          onchange="file.load(this)"
-          />
-        <label onclick="stdin.clear()"> Clear</label>
-        <a href="https://github.com/Galindo-lab/eigenmath-web"> Source</a>
-        <a href="./resources/documents/manual.html"> Manual</a>
-      </div>
+    <style>
+        textarea {
+            white-space: nowrap;
+            overflow: auto;
+            overflow: -moz-scrollbars-horizontal;
+        }
 
-      <!-- stdin, buffer de entrada -->
+        .emited_graph {
+            width: 45vw;
+        }
+    </style>
 
-      <textarea
-        id="stdin"
-        autocapitalize="none"
-        spellcheck="false"
-        placeholder="script..."
-        onchange="stdin.save()"
-      ></textarea>
+</head>
 
-      <div class="HorizontalArrangement">
-        <div class="HorizontalArrangement button-panel">
-          <button onclick="stdin.insert('=')">=</button>
-          <button onclick="stdin.insert('+')">+</button>
-          <button onclick="stdin.insert('-')">-</button>
-          <button onclick="stdin.insert('*')">*</button>
-          <button onclick="stdin.insert('/')">/</button>
-          <button onclick="stdin.insert('^')">^</button>
-          <button onclick="stdin.insert('.')">.</button>
-          <button onclick="stdin.insert(',')">,</button>
-          <button onclick="stdin.insert('(')">&#40;</button>
-          <button onclick="stdin.insert(')')">&#41;</button>
-          <button onclick="stdin.insert('[')">&#91;</button>
-          <button onclick="stdin.insert(']')">&#93;</button>
-          <button onclick="stdin.insert('<')">&#60;</button>
-          <button onclick="stdin.insert('>')">&#62;</button>
+
+
+<body class="d-flex flex-column h-100">
+
+    <nav class="navbar navbar-expand-sm bg-light navbar-light" style="user-select: none;">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="resources/images/sigma1024.png" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top">
+            </a>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <label class="nav-link"  for="load-file">Load</label>
+                        <input class="d-none" id="load-file" name="load-file" type="file" onchange="file.load(this)" />
+                    </li>
+
+                    <li class="nav-item">
+                        <a onclick="file.save()" class="nav-link" href="#">Save</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="stdin.clear()" href="#">Clear</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://georgeweigt.github.io/eigenmath.pdf">Manual</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Galindo-lab/eigenmath-web">Source</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <button id="execute" onclick="run()">Run</button>
-      </div>
+
+    <!--div class="container"-->
+    <div class="container-fluid">
+        <br>
+        <div class="row justify-content-md-center">
+            <div class="row container">
+                <!--style="max-width: 95vw;"-->
+
+                <div class="col-md-6">
+                    <textarea class="form-control" style="font-family:monospace; height: 75vh;" wrap="soft" id="stdin"
+                        rows="3">
+-- Eigenmath script goes here
+f = sin(x) / x
+f
+yrange = (-1,1)
+draw(f,x)     
+                    </textarea>
+
+                    <div class="pt-2 d-flex w-100 " style="user-select: none;">
+                        <div class="overflow-auto w-100 nowrap">
+
+                            <button class="btn btn-light" onclick="stdin.insert('=')">=</button>
+                            <button class="btn btn-light" onclick="stdin.insert('+')">+</button>
+                            <button class="btn btn-light" onclick="stdin.insert('-')">-</button>
+                            <button class="btn btn-light" onclick="stdin.insert('*')">*</button>
+                            <button class="btn btn-light" onclick="stdin.insert('/')">/</button>
+                            <button class="btn btn-light" onclick="stdin.insert('^')">^</button>
+                            <button class="btn btn-light" onclick="stdin.insert('.')">.</button>
+                            <button class="btn btn-light" onclick="stdin.insert(',')">,</button>
+                            <button class="btn btn-light" onclick="stdin.insert('(')">&#40;</button>
+                            <button class="btn btn-light" onclick="stdin.insert(')')">&#41;</button>
+                            <button class="btn btn-light" onclick="stdin.insert('[')">&#91;</button>
+                            <button class="btn btn-light" onclick="stdin.insert(']')">&#93;</button>
+                            <button class="btn btn-light" onclick="stdin.insert('<')">&#60;</button>
+                            <button class="btn btn-light" onclick="stdin.insert('>')">&#62;</button>
+
+                        </div>
+
+                        <button class="btn btn-primary" onclick="run()">Run&nbsp;►</button>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 overflow-auto" style="max-height: 80vh; user-select: none;" id="stdout">
+                    <!-- Content for the second column -->
+                </div>
+
+
+            </div>
+
+        </div>
     </div>
-  </body>
+
+
+</body>
+
 </html>
