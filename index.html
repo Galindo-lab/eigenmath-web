@@ -27,7 +27,7 @@
 
 <body class="d-flex flex-column h-100">
 
-    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light" style="user-select: none;">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="#">
@@ -68,40 +68,47 @@
     <div class="container-fluid">
         <br>
         <div class="row justify-content-md-center">
-            <div class="row container" >
+            <div class="row container">
                 <!--style="max-width: 95vw;"-->
 
                 <div class="col-md-6">
-                    <textarea class="form-control" style="font-family:monospace; height: 75vh;" wrap="soft" id="stdin"rows="3"></textarea>
+                    <textarea class="form-control" style="font-family:monospace; height: 75vh;" wrap="soft" id="stdin"
+                        rows="3">
+-- Eigenmath script goes here
+f = sin(x) / x
+f
+yrange = (-1,1)
+draw(f,x)     
+                    </textarea>
 
-                    <div class="d-flex ">
-                        <div class="p-2 flex-grow-1">
-                            <button onclick="stdin.insert('=')">=</button>
-                            <button onclick="stdin.insert('+')">+</button>
-                            <button onclick="stdin.insert('-')">-</button>
-                            <button onclick="stdin.insert('*')">*</button>
-                            <button onclick="stdin.insert('/')">/</button>
-                            <button onclick="stdin.insert('^')">^</button>
-                            <button onclick="stdin.insert('.')">.</button>
-                            <button onclick="stdin.insert(',')">,</button>
-                            <button onclick="stdin.insert('(')">&#40;</button>
-                            <button onclick="stdin.insert(')')">&#41;</button>
-                            <button onclick="stdin.insert('[')">&#91;</button>
-                            <button onclick="stdin.insert(']')">&#93;</button>
-                            <button onclick="stdin.insert('<')">&#60;</button>
-                            <button onclick="stdin.insert('>')">&#62;</button>
-                        </div>
+                    <div class="pt-2 d-flex " style="user-select: none;">
+                            <div class="column overflow-auto flex-grow-1">
 
-                        <button class="btn btn-primary" onclick="run()">Run</button>
+                                    <button class="btn btn-light" onclick="stdin.insert('=')">=</button>
+                                <button class="btn btn-light" onclick="stdin.insert('+')">+</button>
+                                <button class="btn btn-light" onclick="stdin.insert('-')">-</button>
+                                <button class="btn btn-light" onclick="stdin.insert('*')">*</button>
+                                <button class="btn btn-light" onclick="stdin.insert('/')">/</button>
+                                <button class="btn btn-light" onclick="stdin.insert('^')">^</button>
+                                <button class="btn btn-light" onclick="stdin.insert('.')">.</button>
+                                <button class="btn btn-light" onclick="stdin.insert(',')">,</button>
+                                <button class="btn btn-light" onclick="stdin.insert('(')">&#40;</button>
+                                <button class="btn btn-light" onclick="stdin.insert(')')">&#41;</button>
+                                <button class="btn btn-light" onclick="stdin.insert('[')">&#91;</button>
+                                <button class="btn btn-light" onclick="stdin.insert(']')">&#93;</button>
+                                <button class="btn btn-light" onclick="stdin.insert('<')">&#60;</button>
+                                <button class="btn btn-light" onclick="stdin.insert('>')">&#62;</button>
+                               
+                            </div>
+
+                        <button class="btn btn-primary" onclick="run()">Run&nbsp;►</button>
                     </div>
 
                 </div>
 
 
-                <div class="col-md-5 " id="stdout">
+                <div class="col-md-6 overflow-auto" style="max-height: 80vh; user-select: none;" id="stdout">
                     <!-- Content for the second column -->
-                    <h2>Column 2</h2>
-                    <p>This is the content of the second column.</p>
                 </div>
 
 
