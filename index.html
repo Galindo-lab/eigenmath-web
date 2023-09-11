@@ -13,6 +13,14 @@
     <!-- String -->
     <script defer src="./eigenmath/eigenmath.js"></script>
 
+    <style>
+        textarea {
+            white-space: nowrap;
+            overflow: auto;
+            overflow: -moz-scrollbars-horizontal;
+        }
+    </style>
+
 </head>
 
 
@@ -23,9 +31,10 @@
         <div class="container-fluid">
 
             <a class="navbar-brand" href="#">
-                <img src="resources/images/sigma1024.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                <img src="resources/images/sigma1024.png" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top">
             </a>
-            
+
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
 
@@ -36,7 +45,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Save</a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">Clear</a>
                     </li>
@@ -55,28 +64,48 @@
     </nav>
 
 
-    <div class="container">
-        <div class="row">
+    <!--div class="container"-->
+    <div class="">
+        <br>
+        <div class="row justify-content-md-center">
+            <div class="row container" >
+                <!--style="max-width: 95vw;"-->
 
-            <div class="col-md-6">
-                
-                <textarea 
-                class="form-control"
-                style="font-family:monospace;"
+                <div class="col-md-6">
+                    <textarea class="form-control" style="font-family:monospace; height: 75vh;" wrap="soft" id="stdin"rows="3"></textarea>
 
-                  id="stdin" rows="3"></textarea>
+                    <div class="d-flex ">
+                        <div class="p-2 flex-grow-1">
+                            <button onclick="stdin.insert('=')">=</button>
+                            <button onclick="stdin.insert('+')">+</button>
+                            <button onclick="stdin.insert('-')">-</button>
+                            <button onclick="stdin.insert('*')">*</button>
+                            <button onclick="stdin.insert('/')">/</button>
+                            <button onclick="stdin.insert('^')">^</button>
+                            <button onclick="stdin.insert('.')">.</button>
+                            <button onclick="stdin.insert(',')">,</button>
+                            <button onclick="stdin.insert('(')">&#40;</button>
+                            <button onclick="stdin.insert(')')">&#41;</button>
+                            <button onclick="stdin.insert('[')">&#91;</button>
+                            <button onclick="stdin.insert(']')">&#93;</button>
+                            <button onclick="stdin.insert('<')">&#60;</button>
+                            <button onclick="stdin.insert('>')">&#62;</button>
+                        </div>
 
-                <button onclick="run()">Run</button><br>
+                        <button class="btn btn-primary" onclick="run()">Run</button>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-5 " id="stdout">
+                    <!-- Content for the second column -->
+                    <h2>Column 2</h2>
+                    <p>This is the content of the second column.</p>
+                </div>
+
 
             </div>
-
-
-            <div class="col-md-6" id="stdout">
-                <!-- Content for the second column -->
-                <h2>Column 2</h2>
-                <p>This is the content of the second column.</p>
-            </div>
-
 
         </div>
     </div>
