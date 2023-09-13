@@ -1,3 +1,3 @@
-window.onload = () => {
+/**window.onload = () => {
     stdin.reload()
-};
+};*/
