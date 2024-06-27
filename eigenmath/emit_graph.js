@@ -7,7 +7,7 @@ function emit_graph() {
   h = "height='" + h + "'";
   w = "width='" + w + "'";
 
-  outbuf = "<svg class='emited_graph' viewbox='50 0 600 350'" + h + w + ">";
+  outbuf = "<svg class='img-fluid' viewbox='50 0 500 350'" + h + w + ">";
 
   emit_axes();
   emit_box();
